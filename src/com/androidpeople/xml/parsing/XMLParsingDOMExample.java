@@ -38,12 +38,12 @@ public class XMLParsingDOMExample extends Activity {
 		final EditText et = (EditText) findViewById(R.id.editText1);
 		
 		button1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            		public void onClick(View v) {
             	
-            getFeed(et.getText().toString());
+            			getFeed(et.getText().toString());
             
-            }
-        });
+            		}
+        	});
 	}
 	
 	
