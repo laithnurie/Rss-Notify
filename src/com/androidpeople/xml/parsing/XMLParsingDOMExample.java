@@ -47,7 +47,7 @@ public class XMLParsingDOMExample extends Activity {
 	}
 	
 	
-	public void getFeed(String feedUrl1)
+	public void getFeed(String feedUrl)
 	{
 	
 	TextView title[];
@@ -56,7 +56,7 @@ public class XMLParsingDOMExample extends Activity {
 
 	try {
 
-		URL url = new URL(feedUrl1);
+		URL url = new URL(feedUrl);
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new InputSource(url.openStream()));
