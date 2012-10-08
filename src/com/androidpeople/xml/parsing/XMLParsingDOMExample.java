@@ -50,13 +50,15 @@ public class XMLParsingDOMExample extends Activity {
 	public void getFeed(String feedUrl)
 	{
 	
-	TextView title[];
+	TextView title[];	
 	TextView link[];
 	TextView desc[];
 
+	layout.removeAllViewsInLayout();
+
 	try {
 
-		URL url = new URL(feedUrl);
+		URL url = new URL("http://www.mangahere.com/rss/"+feedUrl+".xml");
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new InputSource(url.openStream()));
@@ -68,7 +70,7 @@ public class XMLParsingDOMExample extends Activity {
 		link = new TextView[nodeList.getLength()];
 		desc = new TextView[nodeList.getLength()];
 		
-		for (int i = 0; i < nodeList.getLength(); i++) {
+		for (int i = 0; i < 1; i++) {
 
 			Node node = nodeList.item(i);
 
@@ -82,10 +84,12 @@ public class XMLParsingDOMExample extends Activity {
 			titleList = titleElement.getChildNodes();
 			if (titleList.item(0) !=null) {
 				title[i].setText("Chapter No = "+ ((Node) titleList.item(0)).getNodeValue());
+				layout.addView(title[i]);
+
 			}
 			else {
 				title[i].setText("There is no Title");
-			}
+			}	
 			
 
 			NodeList linkList = fstElmnt.getElementsByTagName("link");
@@ -93,6 +97,8 @@ public class XMLParsingDOMExample extends Activity {
 			linkList = linkElement.getChildNodes();
 			if (linkList.item(0) !=null) {
 				link[i].setText("Link = "+ ((Node) linkList.item(0)).getNodeValue());
+				layout.addView(link[i]);
+
 			}
 			else {
 				link[i].setText("no link available");
@@ -104,14 +110,12 @@ public class XMLParsingDOMExample extends Activity {
 			descList = descElement.getChildNodes();
 			if (descList.item(0) !=null) {
 				desc[i].setText("title = "+ ((Node) descList.item(0)).getNodeValue());
+				layout.addView(desc[i]);
 			}
 			else {
 				desc[i].setText("No Description available");
 			}
 			
-			layout.addView(title[i]);
-			layout.addView(link[i]);
-			layout.addView(desc[i]);
 		}
 	} 
 	
