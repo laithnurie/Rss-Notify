@@ -19,7 +19,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class XMLParsingDOMExample extends Activity {
+public class MangaMenu extends Activity {
 	
 	LinearLayout layout;
 
