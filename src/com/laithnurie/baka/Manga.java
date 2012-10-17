@@ -1,11 +1,13 @@
 package com.laithnurie.baka;
 
+
 public class Manga {
 	
 		private long id;
 		private String manga;
 		private String chapter;
 		private String desc;
+		private String pubDate;
 
 		public long getId() {
 			return id;
@@ -37,5 +39,15 @@ public class Manga {
 		
 		public void setDesc(String desc) {
 			this.desc = desc;
-		}	
+		}
+		
+		public void setDate(String input) {
+			
+			this.pubDate = input;
+		}
+		
+		public String getDate() {
+			return pubDate;
+		}
+			
 }

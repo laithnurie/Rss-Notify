@@ -16,6 +16,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,13 +24,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.Toast;
 import android.support.v4.app.NavUtils;
 
 public class MangaList extends Activity {
 	
     ArrayList<Manga> searchResults;
     ListView lv;
+    int noOfMangas;
     
     
     @Override
@@ -48,8 +49,11 @@ public class MangaList extends Activity {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = lv.getItemAtPosition(position);
-                Manga fullObject = (Manga)o;
-                Toast.makeText(MangaList.this, "You have chosen: " + " " + fullObject.getManga(), Toast.LENGTH_LONG).show();
+                Manga fullObject = (Manga) o;
+                
+                Intent i = new Intent(getApplicationContext(), MangaViewer.class);
+            	i.putExtra("mangaPage", fullObject.getManga());
+            	startActivity(i);
             }
 
         });    
@@ -97,12 +101,8 @@ public class MangaList extends Activity {
     	@Override
     	protected ArrayList<Manga> doInBackground(final String... params) {
     		searchResults = new ArrayList<Manga>();
-            searchResults.clear();
-                	    		
+            searchResults.clear();      	    		
     		passedParam = params[0];
-    	
-
-    	
     		try {
     	
     			URL url = new URL("http://www.mangahere.com/rss/"+passedParam+".xml");
@@ -112,10 +112,11 @@ public class MangaList extends Activity {
     			doc.getDocumentElement().normalize();
     	
     			NodeList nodeList = doc.getElementsByTagName("item");
+    			noOfMangas =nodeList.getLength();
     	
 
     			
-    			for (int i = 0; i < nodeList.getLength(); i++) {
+    			for (int i = 0; i < noOfMangas; i++) {
     				
     		        sr = new Manga();
 
@@ -125,6 +126,7 @@ public class MangaList extends Activity {
 
     	
     				Element fstElmnt = (Element) node;
+    				
     				NodeList titleList = fstElmnt.getElementsByTagName("title");
     				Element titleElement = (Element) titleList.item(0);
     				titleList = titleElement.getChildNodes();
@@ -162,9 +164,18 @@ public class MangaList extends Activity {
     					sr.setDesc("No Description available");
     				}
     				
+    				NodeList pubList = fstElmnt.getElementsByTagName("pubDate");
+    				Element pubElement = (Element) pubList.item(0);
+    				pubList = pubElement.getChildNodes();
+    				if (pubList.item(0) !=null) {
+    					sr.setDate(((Node) pubList.item(0)).getNodeValue());
+    				}
+    				else {
+    					sr.setDate("No date available");
+    				}
+    				
     	    		searchResults.add(sr);
     				publishProgress(i);
-    				Thread.sleep(10);
     			}
     		} 
     		
@@ -181,8 +192,8 @@ public class MangaList extends Activity {
     	
     	@Override
         protected void onPostExecute(ArrayList<Manga> result) {
+    		lv.setAdapter(new MyCustomBaseAdapter(MangaList.this, result));
     		pd.dismiss();
-    		lv.setAdapter(new MyCustomBaseAdapter(getApplicationContext(), result));
         }
     }
     

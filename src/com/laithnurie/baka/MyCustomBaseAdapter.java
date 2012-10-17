@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 public class MyCustomBaseAdapter extends BaseAdapter {
     private static ArrayList<Manga> mangaList;
- 
     private LayoutInflater mInflater;
  
     public MyCustomBaseAdapter(Context context, ArrayList<Manga> results) {
@@ -36,27 +35,32 @@ public class MyCustomBaseAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.custom_row_view, null);
             holder = new ViewHolder();
-            holder.txtName = (TextView) convertView.findViewById(R.id.manga);
-            holder.txtCityState = (TextView) convertView
-                    .findViewById(R.id.chapter);
-            holder.txtPhone = (TextView) convertView.findViewById(R.id.desc);
+            holder.txtManga = (TextView) convertView.findViewById(R.id.manga);
+            holder.txtChapter = (TextView) convertView.findViewById(R.id.chapter);
+            holder.txtDesc = (TextView) convertView.findViewById(R.id.desc);
+            holder.txtDate = (TextView) convertView.findViewById(R.id.pubDate);
+
+            
  
             convertView.setTag(holder);
-        } else {
+        } 
+        else {
             holder = (ViewHolder) convertView.getTag();
         }
  
-        holder.txtName.setText(mangaList.get(position).getManga());
-        holder.txtCityState.setText(mangaList.get(position)
-                .getChapter());
-        holder.txtPhone.setText(mangaList.get(position).getDesc());
+        holder.txtManga.setText(mangaList.get(position).getManga());
+        holder.txtChapter.setText(mangaList.get(position).getChapter());
+        holder.txtDesc.setText(mangaList.get(position).getDesc());
+        holder.txtDate.setText(mangaList.get(position).getDate());
+
  
         return convertView;
     }
  
     static class ViewHolder {
-        TextView txtName;
-        TextView txtCityState;
-        TextView txtPhone;
+        TextView txtManga;
+        TextView txtChapter;
+        TextView txtDesc;
+        TextView txtDate;
     }
 }
