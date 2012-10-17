@@ -17,14 +17,19 @@ public final class R {
         public static final int naruto=0x7f020003;
     }
     public static final class id {
-        public static final int bleachBtn=0x7f060002;
+        public static final int bleachBtn=0x7f060006;
+        public static final int chapter=0x7f060003;
+        public static final int desc=0x7f060004;
+        public static final int manga=0x7f060002;
         public static final int mangaList=0x7f060000;
-        public static final int menu_settings=0x7f060003;
-        public static final int narutoBtn=0x7f060001;
+        public static final int menu_settings=0x7f060007;
+        public static final int narutoBtn=0x7f060005;
+        public static final int srListView=0x7f060001;
     }
     public static final class layout {
         public static final int activity_manga_list=0x7f030000;
-        public static final int main=0x7f030001;
+        public static final int custom_row_view=0x7f030001;
+        public static final int main=0x7f030002;
     }
     public static final class menu {
         public static final int activity_manga_list=0x7f050000;
