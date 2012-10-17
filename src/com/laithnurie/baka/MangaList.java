@@ -36,7 +36,7 @@ public class MangaList extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manga_list);
-        
+                
         Bundle extras = getIntent().getExtras();
         String feedURL = extras.getString("feedUrl");
        // getFeed(feedURL);
@@ -44,8 +44,6 @@ public class MangaList extends Activity {
         new loadMangaList().execute(feedURL);
         
         lv = (ListView) findViewById(R.id.srListView);
-        lv.setAdapter(new MyCustomBaseAdapter(this, searchResults));
- 
         lv.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
@@ -99,6 +97,7 @@ public class MangaList extends Activity {
     	@Override
     	protected ArrayList<Manga> doInBackground(final String... params) {
     		searchResults = new ArrayList<Manga>();
+            searchResults.clear();
                 	    		
     		passedParam = params[0];
     	
@@ -116,7 +115,7 @@ public class MangaList extends Activity {
     	
 
     			
-    			for (int i = 0; i < 100; i++) {
+    			for (int i = 0; i < nodeList.getLength(); i++) {
     				
     		        sr = new Manga();
 
@@ -130,10 +129,6 @@ public class MangaList extends Activity {
     				Element titleElement = (Element) titleList.item(0);
     				titleList = titleElement.getChildNodes();
     				if (titleList.item(0) !=null) {
-    					//title[i].setText("Chapter No = "+ ((Node) titleList.item(0)).getNodeValue());
-    					//mangaList.addView(title[i]);
-    					
-    					//return title[i];
     					sr.setChapter(((Node) titleList.item(0)).getNodeValue());
     	
     				}
@@ -146,8 +141,7 @@ public class MangaList extends Activity {
     				Element linkElement = (Element) linkList.item(0);
     				linkList = linkElement.getChildNodes();
     				if (linkList.item(0) !=null) {
-    					//link[i].setText("Link = "+ ((Node) linkList.item(0)).getNodeValue());
-    					//mangaList.addView(link[i]);
+ 
     					
     					sr.setManga(((Node) linkList.item(0)).getNodeValue());
 
@@ -163,7 +157,6 @@ public class MangaList extends Activity {
     				descList = descElement.getChildNodes();
     				if (descList.item(0) !=null) {
     					sr.setDesc(((Node) descList.item(0)).getNodeValue());
-    					//mangaList.addView(desc[i]);
     				}
     				else {
     					sr.setDesc("No Description available");
@@ -171,7 +164,7 @@ public class MangaList extends Activity {
     				
     	    		searchResults.add(sr);
     				publishProgress(i);
-    				Thread.sleep(88);
+    				Thread.sleep(10);
     			}
     		} 
     		
@@ -189,8 +182,7 @@ public class MangaList extends Activity {
     	@Override
         protected void onPostExecute(ArrayList<Manga> result) {
     		pd.dismiss();
-    		lv = (ListView) findViewById(R.id.srListView);
-    		lv.setAdapter(new MyCustomBaseAdapter(getApplicationContext(), searchResults));
+    		lv.setAdapter(new MyCustomBaseAdapter(getApplicationContext(), result));
         }
     }
     
