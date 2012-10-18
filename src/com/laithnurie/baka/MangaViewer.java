@@ -21,6 +21,8 @@ public class MangaViewer extends Activity {
 		webView.getSettings().setSupportZoom(true);
 		webView.getSettings().setBuiltInZoomControls(true);
 		webView.getSettings().setAllowContentAccess(true);
+		webView.getSettings().setLoadWithOverviewMode(true);
+	    webView.getSettings().setUseWideViewPort(true);
 		webView.setWebViewClient(new WebViewClient() {
 		    @Override
 		    public boolean shouldOverrideUrlLoading(WebView wView, String url)

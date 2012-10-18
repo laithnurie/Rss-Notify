@@ -6,5 +6,7 @@
     <string name="title_activity_manga_list">MangaList</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_manga_viewer">MangaViewer</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="manga">manga</string>
 
 </resources>

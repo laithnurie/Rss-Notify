@@ -12,13 +12,21 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Light" >
         <activity
-            android:name="MangaMenu"
+            android:name="MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".MangaMenu"
+            android:label="@string/title_activity_manga_list" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.laithnurie.baka.MainActivity" />
         </activity>
         <activity
             android:name=".MangaList"
