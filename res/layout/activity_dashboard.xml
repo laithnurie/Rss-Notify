@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+ 
+    <com.laithnurie.baka.DashboardLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+ 
+        <Button android:id="@+id/dashboard_button_add"
+            style="@style/DashboardButton"
+            android:text="@string/manga"
+            android:drawableTop="@drawable/dashboard_button_add" />
+ 
+        <Button android:id="@+id/dashboard_button_viewall"
+            style="@style/DashboardButton"
+            android:text="@string/manga"
+            android:drawableTop="@drawable/manga_btn" />
+ 
+        <Button android:id="@+id/dashboard_button_manage"
+            style="@style/DashboardButton"
+            android:text="@string/manga"
+            android:drawableTop="@drawable/manga_btn" />
+ 
+        <Button android:id="@+id/dashboard_button_personalbests"
+            style="@style/DashboardButton"
+            android:text="@string/manga"
+            android:drawableTop="@drawable/manga_btn" />
+ 
+    </com.laithnurie.baka.DashboardLayout>
+ 
+</LinearLayout>

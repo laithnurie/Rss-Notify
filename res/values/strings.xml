@@ -8,5 +8,6 @@
     <string name="title_activity_manga_viewer">MangaViewer</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="manga">manga</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
 
 </resources>
