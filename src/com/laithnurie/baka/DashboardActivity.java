@@ -17,7 +17,7 @@ public class DashboardActivity extends Activity {
         //attach event handler to dash buttons
         DashboardClickListener dBClickListener = new DashboardClickListener();
         findViewById(R.id.mangaSection).setOnClickListener(dBClickListener);
-        findViewById(R.id.dashboard_button_viewall).setOnClickListener(dBClickListener);
+        findViewById(R.id.travel).setOnClickListener(dBClickListener);
         findViewById(R.id.dashboard_button_manage).setOnClickListener(dBClickListener);
         findViewById(R.id.dashboard_button_personalbests).setOnClickListener(dBClickListener);
     }
@@ -36,8 +36,8 @@ public class DashboardActivity extends Activity {
                 case R.id.mangaSection:
                     i = new Intent(DashboardActivity.this, MangaMenu.class);
                     break;
-                case R.id.dashboard_button_viewall:
-                    i = new Intent(DashboardActivity.this, MangaMenu.class);
+                case R.id.travel:
+                    i = new Intent(DashboardActivity.this, TravelMenu.class);
                     break;
                 case R.id.dashboard_button_manage:
                     i = new Intent(DashboardActivity.this, MangaMenu.class);

@@ -16,10 +16,10 @@
             android:text="@string/manga"
             android:drawableTop="@drawable/manga_button_switch" />
  
-        <Button android:id="@+id/dashboard_button_viewall"
+        <Button android:id="@+id/travel"
             style="@style/DashboardButton"
-            android:text="@string/manga"
-            android:drawableTop="@drawable/manga_btn" />
+            android:text="@string/travel"
+            android:drawableTop="@drawable/travel_button_switch" />
  
         <Button android:id="@+id/dashboard_button_manage"
             style="@style/DashboardButton"

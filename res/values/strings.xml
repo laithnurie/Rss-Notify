@@ -7,8 +7,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_manga_viewer">MangaViewer</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="manga">manga</string>
+    <string name="manga">Manga</string>
+    <string name="travel">Travel</string>
+    <string name="tube">Tube</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="title_activity_tube">TubeActivity</string>
+    <string name="title_activity_travel">Travel</string>
 
 </resources>
