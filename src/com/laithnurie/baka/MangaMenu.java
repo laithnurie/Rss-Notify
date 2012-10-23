@@ -4,8 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-
+import android.view.View.OnClickListener;
 public class MangaMenu extends Activity {
 	
 	@Override
@@ -13,24 +12,35 @@ public class MangaMenu extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		
-		Button narutoBtn = (Button) findViewById(R.id.narutoBtn);
 		
-		narutoBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	mangaIntentSwitcher("naruto");
-            }
-        });
+		DashboardClickListener dBClickListener = new DashboardClickListener();
+        findViewById(R.id.narutoBtn).setOnClickListener(dBClickListener);
+        findViewById(R.id.bleachBtn).setOnClickListener(dBClickListener);
+        findViewById(R.id.onepieceBtn).setOnClickListener(dBClickListener);
 		
 		
-		Button bleachBtn = (Button) findViewById(R.id.bleachBtn);
 		
-		bleachBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	mangaIntentSwitcher("bleach");
-            }
-        });
 	}
 	
+	private class DashboardClickListener implements OnClickListener {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.narutoBtn:
+                	mangaIntentSwitcher("naruto");
+                    break;
+                case R.id.bleachBtn:
+                	mangaIntentSwitcher("bleach");
+                    break;
+                case R.id.onepieceBtn:
+                	mangaIntentSwitcher("one_piece");
+                    break;
+                default:
+                    break;
+            }
+
+        }
+}
 	public void mangaIntentSwitcher(String manga)
 	{
 		Intent i = new Intent(getApplicationContext(), MangaList.class);

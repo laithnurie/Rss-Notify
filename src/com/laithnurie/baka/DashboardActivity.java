@@ -14,9 +14,9 @@ public class DashboardActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         
-        //attach event handler to dash buttons laith
+        //attach event handler to dash buttons
         DashboardClickListener dBClickListener = new DashboardClickListener();
-        findViewById(R.id.dashboard_button_add).setOnClickListener(dBClickListener);
+        findViewById(R.id.mangaSection).setOnClickListener(dBClickListener);
         findViewById(R.id.dashboard_button_viewall).setOnClickListener(dBClickListener);
         findViewById(R.id.dashboard_button_manage).setOnClickListener(dBClickListener);
         findViewById(R.id.dashboard_button_personalbests).setOnClickListener(dBClickListener);
@@ -33,17 +33,17 @@ public class DashboardActivity extends Activity {
         public void onClick(View v) {
             Intent i = null;
             switch (v.getId()) {
-                case R.id.dashboard_button_add:
-                    i = new Intent(DashboardActivity.this, MainActivity.class);
+                case R.id.mangaSection:
+                    i = new Intent(DashboardActivity.this, MangaMenu.class);
                     break;
                 case R.id.dashboard_button_viewall:
-                    i = new Intent(DashboardActivity.this, MainActivity.class);
+                    i = new Intent(DashboardActivity.this, MangaMenu.class);
                     break;
                 case R.id.dashboard_button_manage:
-                    i = new Intent(DashboardActivity.this, MainActivity.class);
+                    i = new Intent(DashboardActivity.this, MangaMenu.class);
                     break;
                 case R.id.dashboard_button_personalbests:
-                    i = new Intent(DashboardActivity.this, MainActivity.class);
+                    i = new Intent(DashboardActivity.this, MangaMenu.class);
                     break;
                 default:
                     break;

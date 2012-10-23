@@ -11,10 +11,10 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
  
-        <Button android:id="@+id/dashboard_button_add"
+        <Button android:id="@+id/mangaSection"
             style="@style/DashboardButton"
             android:text="@string/manga"
-            android:drawableTop="@drawable/dashboard_button_add" />
+            android:drawableTop="@drawable/manga_button_switch" />
  
         <Button android:id="@+id/dashboard_button_viewall"
             style="@style/DashboardButton"
