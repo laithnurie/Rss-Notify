@@ -14,7 +14,7 @@ public class DashboardActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         
-        //attach event handler to dash buttons
+        //attach event handler to dash buttons laith
         DashboardClickListener dBClickListener = new DashboardClickListener();
         findViewById(R.id.dashboard_button_add).setOnClickListener(dBClickListener);
         findViewById(R.id.dashboard_button_viewall).setOnClickListener(dBClickListener);
