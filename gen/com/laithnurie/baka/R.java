@@ -40,15 +40,19 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_dashboard=0x7f030000;
-        public static final int activity_manga_list=0x7f030001;
-        public static final int activity_manga_viewer=0x7f030002;
-        public static final int custom_row_view=0x7f030003;
-        public static final int main=0x7f030004;
+        public static final int activity_main=0x7f030001;
+        public static final int activity_manga_list=0x7f030002;
+        public static final int activity_manga_viewer=0x7f030003;
+        public static final int activity_tube=0x7f030004;
+        public static final int custom_row_view=0x7f030005;
+        public static final int main=0x7f030006;
     }
     public static final class menu {
         public static final int activity_dashboard=0x7f060000;
-        public static final int activity_manga_list=0x7f060001;
-        public static final int activity_manga_viewer=0x7f060002;
+        public static final int activity_main=0x7f060001;
+        public static final int activity_manga_list=0x7f060002;
+        public static final int activity_manga_viewer=0x7f060003;
+        public static final int activity_tube=0x7f060004;
     }
     public static final class string {
         public static final int app_name=0x7f040002;
@@ -61,6 +65,7 @@ public final class R {
         public static final int title_activity_main=0x7f040007;
         public static final int title_activity_manga_list=0x7f040004;
         public static final int title_activity_manga_viewer=0x7f040006;
+        public static final int title_activity_tube=0x7f04000a;
     }
     public static final class style {
         public static final int DashboardButton=0x7f050000;

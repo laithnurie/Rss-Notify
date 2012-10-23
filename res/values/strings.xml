@@ -9,5 +9,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="manga">manga</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_activity_tube">TubeActivity</string>
 
 </resources>
