@@ -16,27 +16,55 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
+import android.widget.TextView;
 
 public class TubeActivity extends Activity {
   
 /** Called when the activity is first created. */
+	
+	TextView bakerloo;
+    TextView central;
+    TextView circle;
+    TextView district;
+    TextView dlr;
+    TextView hammersmith;
+    TextView jubilee;
+    TextView metropolitan;
+    TextView northern;
+    TextView overground;
+    TextView piccadily;
+    TextView victoria;
+    TextView waterloocity;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_tube);
+    
+    bakerloo = (TextView)findViewById(R.id.baker_stat);
+    central = (TextView)findViewById(R.id.central_stat);
+    circle = (TextView)findViewById(R.id.circle_stat);
+    district = (TextView)findViewById(R.id.district_stat);
+    dlr = (TextView)findViewById(R.id.dlr_stat);
+    hammersmith = (TextView)findViewById(R.id.hammer_stat);
+    jubilee = (TextView)findViewById(R.id.jubilee_stat);
+    metropolitan = (TextView)findViewById(R.id.metro_stat);
+    northern = (TextView)findViewById(R.id.north_stat);
+    overground = (TextView)findViewById(R.id.over_stat);
+    piccadily = (TextView)findViewById(R.id.piccadily_stat);
+    victoria = (TextView)findViewById(R.id.victoria_stat);
+    waterloocity = (TextView)findViewById(R.id.water_stat);
+    
     new loadTubeJson().execute();
+    
   }
 
   
-@TargetApi(3)
 public class loadTubeJson extends AsyncTask<String, Integer, String> {
   	
   	ProgressDialog pd;
@@ -103,7 +131,39 @@ public class loadTubeJson extends AsyncTask<String, Integer, String> {
   	        String lineName = line.getString("name");
   	        String lineStatus = line.getString("status");
   	        
-  	        Toast.makeText(getApplicationContext(), lineName + ": " + lineStatus, Toast.LENGTH_SHORT).show();
+  	        Log.i("tube", lineName +" : " + lineStatus);
+  	         
+			  switch (i) {
+				  case 0:  bakerloo.setText(lineStatus);
+				           break;
+				  case 1:  central.setText(lineStatus);
+				           break;
+				  case 2:  circle.setText(lineStatus);
+				           break;
+				  case 3:  district.setText(lineStatus);
+				           break;
+				  case 4:  dlr.setText(lineStatus);
+				           break;
+				  case 5:  hammersmith.setText(lineStatus);
+				           break;
+				  case 6:  jubilee.setText(lineStatus);
+				           break;
+				  case 7:  metropolitan.setText(lineStatus);
+				           break;
+				  case 8:  northern.setText(lineStatus);
+				  		   break;    
+				  case 9:  overground.setText(lineStatus);
+				           break;
+				  case 10: piccadily.setText(lineStatus);
+				           break;
+				  case 11: victoria.setText(lineStatus);
+				           break;
+				  case 12: waterloocity.setText(lineStatus);
+				           break;
+				  default:
+				           break;
+			  }
+  	        
   	        
   	      }
   	    } catch (Exception e) {
@@ -112,4 +172,6 @@ public class loadTubeJson extends AsyncTask<String, Integer, String> {
   		pd.dismiss();
       }
   }
+
+
 } 

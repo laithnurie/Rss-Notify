@@ -3,6 +3,7 @@
     package="com.laithnurie.baka"
     android:versionCode="1"
     android:versionName="1.0" >
+    <uses-sdk android:minSdkVersion="14"/>
 
     <uses-permission android:name="android.permission.INTERNET" >
     </uses-permission>

@@ -13,5 +13,7 @@
     <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="title_activity_tube">TubeActivity</string>
     <string name="title_activity_travel">Travel</string>
+    
+
 
 </resources>

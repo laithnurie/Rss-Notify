@@ -10,6 +10,23 @@ package com.laithnurie.baka;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int bakerloo=0x7f060000;
+        public static final int central=0x7f060001;
+        public static final int circle=0x7f060002;
+        public static final int district=0x7f060003;
+        public static final int dlr=0x7f060004;
+        public static final int hammersmith=0x7f060005;
+        public static final int jubilee=0x7f060006;
+        public static final int metropolitan=0x7f060007;
+        public static final int northern=0x7f060008;
+        public static final int overground=0x7f060009;
+        public static final int piccadily=0x7f06000a;
+        public static final int status=0x7f06000d;
+        public static final int ug_colors=0x7f06000e;
+        public static final int victoria=0x7f06000b;
+        public static final int waterloo=0x7f06000c;
+    }
     public static final class drawable {
         public static final int bleach=0x7f020000;
         public static final int ic_action_search=0x7f020001;
@@ -25,48 +42,50 @@ public final class R {
         public static final int tube=0x7f02000b;
     }
     public static final class id {
-        public static final int TextView01=0x7f070021;
-        public static final int TextView02=0x7f070020;
-        public static final int TextView03=0x7f07001f;
-        public static final int TextView04=0x7f07001e;
-        public static final int TextView05=0x7f07001d;
-        public static final int TextView06=0x7f07001c;
-        public static final int TextView07=0x7f07001b;
-        public static final int TextView08=0x7f07001a;
-        public static final int TextView09=0x7f070019;
-        public static final int TextView10=0x7f070018;
-        public static final int TextView11=0x7f070017;
-        public static final int TextView12=0x7f070016;
-        public static final int TextView13=0x7f070015;
-        public static final int TextView14=0x7f070014;
-        public static final int TextView15=0x7f070013;
-        public static final int TextView16=0x7f070012;
-        public static final int TextView17=0x7f070011;
-        public static final int TextView18=0x7f070010;
-        public static final int TextView19=0x7f07000f;
-        public static final int TextView20=0x7f07000e;
-        public static final int TextView21=0x7f07000d;
-        public static final int TextView22=0x7f07000c;
-        public static final int TextView23=0x7f07000b;
-        public static final int TextView24=0x7f07000a;
-        public static final int TextView25=0x7f070009;
-        public static final int TextView26=0x7f070008;
-        public static final int bleachBtn=0x7f070027;
-        public static final int chapter=0x7f070022;
-        public static final int dashboard_button_manage=0x7f070002;
-        public static final int dashboard_button_personalbests=0x7f070003;
-        public static final int desc=0x7f070024;
-        public static final int manga=0x7f070023;
-        public static final int mangaList=0x7f070004;
-        public static final int mangaSection=0x7f070000;
-        public static final int menu_settings=0x7f070029;
-        public static final int narutoBtn=0x7f070026;
-        public static final int onepieceBtn=0x7f070028;
-        public static final int pubDate=0x7f070025;
-        public static final int srListView=0x7f070005;
-        public static final int travel=0x7f070001;
-        public static final int tube=0x7f070007;
-        public static final int webView1=0x7f070006;
+        public static final int baker_stat=0x7f08000b;
+        public static final int bakerloo=0x7f08000a;
+        public static final int bleachBtn=0x7f080029;
+        public static final int central=0x7f08000c;
+        public static final int central_stat=0x7f08000d;
+        public static final int chapter=0x7f080024;
+        public static final int circle=0x7f08000e;
+        public static final int circle_stat=0x7f08000f;
+        public static final int dashboard_button_manage=0x7f080002;
+        public static final int dashboard_button_personalbests=0x7f080003;
+        public static final int desc=0x7f080026;
+        public static final int district=0x7f080010;
+        public static final int district_stat=0x7f080011;
+        public static final int dlr=0x7f080012;
+        public static final int dlr_stat=0x7f080013;
+        public static final int hammer_stat=0x7f080015;
+        public static final int hammersmith=0x7f080014;
+        public static final int jubilee=0x7f080016;
+        public static final int jubilee_stat=0x7f080017;
+        public static final int linearlayout1=0x7f080009;
+        public static final int manga=0x7f080025;
+        public static final int mangaList=0x7f080004;
+        public static final int mangaSection=0x7f080000;
+        public static final int menu_settings=0x7f08002b;
+        public static final int metro=0x7f080018;
+        public static final int metro_stat=0x7f080019;
+        public static final int narutoBtn=0x7f080028;
+        public static final int north_stat=0x7f08001b;
+        public static final int northern=0x7f08001a;
+        public static final int onepieceBtn=0x7f08002a;
+        public static final int over_stat=0x7f08001d;
+        public static final int overground=0x7f08001c;
+        public static final int piccadily=0x7f08001e;
+        public static final int piccadily_stat=0x7f08001f;
+        public static final int pubDate=0x7f080027;
+        public static final int relLayout1=0x7f080008;
+        public static final int srListView=0x7f080005;
+        public static final int travel=0x7f080001;
+        public static final int tube=0x7f080007;
+        public static final int victoria=0x7f080020;
+        public static final int victoria_stat=0x7f080021;
+        public static final int water_stat=0x7f080023;
+        public static final int waterloo=0x7f080022;
+        public static final int webView1=0x7f080006;
     }
     public static final class layout {
         public static final int activity_dashboard=0x7f030000;
@@ -79,20 +98,32 @@ public final class R {
         public static final int main=0x7f030007;
     }
     public static final class menu {
-        public static final int activity_dashboard=0x7f060000;
-        public static final int activity_main=0x7f060001;
-        public static final int activity_manga_list=0x7f060002;
-        public static final int activity_manga_viewer=0x7f060003;
-        public static final int activity_travel=0x7f060004;
-        public static final int activity_tube=0x7f060005;
+        public static final int activity_dashboard=0x7f070000;
+        public static final int activity_main=0x7f070001;
+        public static final int activity_manga_list=0x7f070002;
+        public static final int activity_manga_viewer=0x7f070003;
+        public static final int activity_travel=0x7f070004;
+        public static final int activity_tube=0x7f070005;
     }
     public static final class string {
         public static final int app_name=0x7f040002;
+        public static final int bakerloo=0x7f04000e;
         public static final int bleach=0x7f040000;
+        public static final int central=0x7f04000f;
+        public static final int circle=0x7f040010;
+        public static final int district=0x7f040011;
+        public static final int dlr=0x7f040012;
+        public static final int hammersmith=0x7f040013;
         public static final int hello_world=0x7f040005;
+        public static final int jubilee=0x7f040014;
         public static final int manga=0x7f040008;
         public static final int menu_settings=0x7f040003;
+        public static final int metropolitan=0x7f040015;
         public static final int naruto=0x7f040001;
+        public static final int northern=0x7f040016;
+        public static final int overground=0x7f040017;
+        public static final int piccadily=0x7f040018;
+        public static final int status=0x7f04001b;
         public static final int title_activity_dashboard=0x7f04000b;
         public static final int title_activity_main=0x7f040007;
         public static final int title_activity_manga_list=0x7f040004;
@@ -101,6 +132,8 @@ public final class R {
         public static final int title_activity_tube=0x7f04000c;
         public static final int travel=0x7f040009;
         public static final int tube=0x7f04000a;
+        public static final int victoria=0x7f040019;
+        public static final int waterloo=0x7f04001a;
     }
     public static final class style {
         public static final int DashboardButton=0x7f050000;
