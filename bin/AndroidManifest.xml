@@ -3,7 +3,8 @@
     package="com.laithnurie.baka"
     android:versionCode="1"
     android:versionName="1.0" >
-    <uses-sdk android:minSdkVersion="14"/>
+
+    <uses-sdk android:minSdkVersion="14" />
 
     <uses-permission android:name="android.permission.INTERNET" >
     </uses-permission>
@@ -49,10 +50,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.laithnurie.baka.DashboardActivity" />
         </activity>
-        
-         <activity
+        <activity
             android:name=".TubeActivity"
             android:label="@string/title_activity_tube" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.laithnurie.baka.TravelMenu" />
+        </activity>
+        <activity
+            android:name=".NationalRail"
+            android:label="@string/title_activity_national_rail" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.laithnurie.baka.TravelMenu" />

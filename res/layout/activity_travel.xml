@@ -14,7 +14,12 @@
         <Button android:id="@+id/tube"
             style="@style/DashboardButton"
             android:text="@string/tube"
-            android:drawableTop="@drawable/tube" />
+            android:drawableTop="@drawable/tube"/> 
+        
+        <Button android:id="@+id/national"
+            style="@style/DashboardButton"
+            android:text="@string/national"
+            android:drawableTop="@drawable/national"/>
  
     </com.laithnurie.baka.DashboardLayout>
  

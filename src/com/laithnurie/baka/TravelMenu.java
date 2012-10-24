@@ -19,6 +19,7 @@ public class TravelMenu extends Activity {
         
         DashboardClickListener dBClickListener = new DashboardClickListener();
         findViewById(R.id.tube).setOnClickListener(dBClickListener);
+        findViewById(R.id.national).setOnClickListener(dBClickListener);
     }
     
     private class DashboardClickListener implements OnClickListener {
@@ -28,6 +29,9 @@ public class TravelMenu extends Activity {
             switch (v.getId()) {
                 case R.id.tube:
                     i = new Intent(TravelMenu.this, TubeActivity.class);
+                    break;
+                case R.id.national:
+                    i = new Intent(TravelMenu.this, NationalRail.class);
                     break;
                 default:
                     break;
