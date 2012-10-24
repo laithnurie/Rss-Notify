@@ -18,8 +18,6 @@ public class DashboardActivity extends Activity {
         DashboardClickListener dBClickListener = new DashboardClickListener();
         findViewById(R.id.mangaSection).setOnClickListener(dBClickListener);
         findViewById(R.id.travel).setOnClickListener(dBClickListener);
-        findViewById(R.id.dashboard_button_manage).setOnClickListener(dBClickListener);
-        findViewById(R.id.dashboard_button_personalbests).setOnClickListener(dBClickListener);
     }
 
     @Override
@@ -38,12 +36,6 @@ public class DashboardActivity extends Activity {
                     break;
                 case R.id.travel:
                     i = new Intent(DashboardActivity.this, TravelMenu.class);
-                    break;
-                case R.id.dashboard_button_manage:
-                    i = new Intent(DashboardActivity.this, MangaMenu.class);
-                    break;
-                case R.id.dashboard_button_personalbests:
-                    i = new Intent(DashboardActivity.this, MangaMenu.class);
                     break;
                 default:
                     break;
