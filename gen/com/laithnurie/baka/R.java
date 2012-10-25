@@ -23,7 +23,6 @@ public final class R {
         public static final int overground=0x7f060009;
         public static final int piccadily=0x7f06000a;
         public static final int status=0x7f06000d;
-        public static final int ug_colors=0x7f06000e;
         public static final int victoria=0x7f06000b;
         public static final int waterloo=0x7f06000c;
     }
