@@ -37,7 +37,7 @@ public class NationalTrains extends Activity {
         fromStation = extras.getString("from");
         toStation = extras.getString("to");
         
-       trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom="+fromStation+"&liveTrainsTo=&serviceId=&callback=trains";
+       trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom="+fromStation+"&liveTrainsTo=&serviceId=";
         new loadTubeJson().execute();
 
     }
@@ -103,19 +103,26 @@ public class NationalTrains extends Activity {
       		try {
       	      JSONObject trainJson = new JSONObject(result);
       	      
-    	      //JSONObject response = trainJson.getJSONObject("response");
-    	      JSONArray linesList = trainJson.getJSONArray("trains");
-      	      Toast.makeText(getApplicationContext(), linesList.length(), Toast.LENGTH_SHORT).show();
+      	        JSONArray linesList = trainJson.getJSONArray("trains");
+      	        
+      	        String length = Integer.toString(linesList.length());
+    	      
+    	        Toast.makeText(getApplicationContext(), length, Toast.LENGTH_SHORT).show();
+    	        
+    	        Log.v("trains", "lineList:" +linesList.length());
+
 
       	      
       	      for (int i = 0; i < linesList.length(); i++) {
       	    	  
-      	        JSONObject line = linesList.getJSONObject(i);
-      	        String lineName = line.getString("name");
-      	        String lineStatus = line.getString("status");
+      	        JSONArray line = linesList.getJSONArray(i);
+      	        String lineName = line.getString(0);
+      	        String line1 = line.getString(1);
+      	        String line2 = line.getString(2);
+        	    
 
       	        
-      	        Log.i("tube", lineName +" : " + lineStatus);
+    	        Toast.makeText(getApplicationContext(), line2 + " " +line1, Toast.LENGTH_SHORT).show();
       	         
       	        
       	        
