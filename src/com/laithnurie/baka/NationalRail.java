@@ -2,13 +2,24 @@ package com.laithnurie.baka;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 import android.support.v4.app.NavUtils;
 
 public class NationalRail extends Activity {
+	
+	Button button;
+	
+	Spinner from;
+    Spinner to;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -18,11 +29,30 @@ public class NationalRail extends Activity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
         		  this, R.array.station_name, android.R.layout.simple_spinner_item );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner from = (Spinner) findViewById( R.id.from_spinner );
-        Spinner to = (Spinner) findViewById( R.id.to_spinner );
+        from = (Spinner) findViewById( R.id.from_spinner );
+        to = (Spinner) findViewById( R.id.to_spinner );
         
         from.setAdapter(adapter);
         to.setAdapter(adapter);
+        
+        button = (Button) findViewById(R.id.button1);
+        
+		button.setOnClickListener(new OnClickListener() {
+ 
+			@Override
+			public void onClick(View arg0) {
+ 
+			String fromValue = from.getSelectedItem().toString();
+			String toValue = to.getSelectedItem().toString();
+						
+			Intent nationalTrains = new Intent(getApplicationContext(), NationalTrains.class);
+			nationalTrains.putExtra("from", fromValue);
+			nationalTrains.putExtra("to",toValue);
+        	startActivity(nationalTrains);
+ 
+			}
+ 
+		});
     }
 
     @Override

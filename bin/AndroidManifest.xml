@@ -64,6 +64,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.laithnurie.baka.TravelMenu" />
         </activity>
+        <activity
+            android:name=".NationalTrains"
+            android:label="@string/title_activity_national_trains" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.laithnurie.baka.NationalRail" />
+        </activity>
     </application>
 
 </manifest>
