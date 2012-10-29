@@ -10,7 +10,6 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 import android.support.v4.app.NavUtils;
 
 public class NationalRail extends Activity {

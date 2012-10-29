@@ -192,7 +192,7 @@ public class MangaList extends Activity {
     	
     	@Override
         protected void onPostExecute(ArrayList<Manga> result) {
-    		lv.setAdapter(new MyCustomBaseAdapter(MangaList.this, result));
+    		lv.setAdapter(new mangaAdapter(MangaList.this, result));
     		pd.dismiss();
         }
     }

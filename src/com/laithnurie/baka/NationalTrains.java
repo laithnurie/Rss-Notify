@@ -20,7 +20,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.graphics.Point;
 import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager.LayoutParams;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class NationalTrains extends Activity {
@@ -37,7 +43,7 @@ public class NationalTrains extends Activity {
         fromStation = extras.getString("from");
         toStation = extras.getString("to");
         
-       trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom="+fromStation+"&liveTrainsTo=&serviceId=";
+        trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom="+fromStation+"&liveTrainsTo=&serviceId=";
         new loadTubeJson().execute();
 
     }
@@ -100,14 +106,34 @@ public class NationalTrains extends Activity {
       	
       	@Override
           protected void onPostExecute(String result) {
+      		
+      		
+      		TableRow  tr1;  
+	      	//TableRow  tr2;    
+	      	TextView statusTV;
+	      	TextView timeTV;
+	      	TextView destTV;
+	
+	      	TableLayout tl = (TableLayout)findViewById(R.id.trainsTable);
+	      	
+	      	Display display = getWindowManager().getDefaultDisplay();
+	      	Point size = new Point();
+	      	display.getSize(size);
+	      	int width = size.x;
+	      	
+	      	String widthx = Integer.toString(width);
+	      	
+	        Toast.makeText(getApplicationContext(),widthx, Toast.LENGTH_SHORT).show();
+
+	      	
+	      	TableLayout.LayoutParams layoutParams =
+	      		    new TableLayout.LayoutParams(width, LayoutParams.MATCH_PARENT);
+	      	
       		try {
       	      JSONObject trainJson = new JSONObject(result);
       	      
       	        JSONArray linesList = trainJson.getJSONArray("trains");
-      	        
-      	        String length = Integer.toString(linesList.length());
-    	      
-    	        Toast.makeText(getApplicationContext(), length, Toast.LENGTH_SHORT).show();
+      	            	      
     	        
     	        Log.v("trains", "lineList:" +linesList.length());
 
@@ -116,13 +142,33 @@ public class NationalTrains extends Activity {
       	      for (int i = 0; i < linesList.length(); i++) {
       	    	  
       	        JSONArray line = linesList.getJSONArray(i);
-      	        String lineName = line.getString(0);
-      	        String line1 = line.getString(1);
-      	        String line2 = line.getString(2);
-        	    
-
-      	        
-    	        Toast.makeText(getApplicationContext(), line2 + " " +line1, Toast.LENGTH_SHORT).show();
+      	        String time = line.getString(1);
+      	        String dest = line.getString(2);
+      	        String status = line.getString(3);
+      
+    	        
+    	        tr1 = (TableRow) new TableRow(getApplicationContext());
+    	        
+    	        timeTV=new TextView(getApplicationContext());
+    	        timeTV.setText(time);
+    	        timeTV.setBackgroundColor(getResources().getColor(R.color.status));
+    	        timeTV.setTextColor(getResources().getColor(R.color.piccadily));
+    	        
+    	        statusTV=new TextView(getApplicationContext());
+    	        statusTV.setText(status);
+    	        statusTV.setBackgroundColor(getResources().getColor(R.color.status));
+    	        statusTV.setTextColor(getResources().getColor(R.color.piccadily));
+    	        
+    	        
+    	        destTV=new TextView(getApplicationContext());
+    	        destTV.setText(dest);
+    	        destTV.setBackgroundColor(getResources().getColor(R.color.status));
+    	        destTV.setTextColor(getResources().getColor(R.color.piccadily));   
+    	        
+    	        tr1.addView(timeTV);
+    	        tr1.addView(statusTV);
+    	        tr1.addView(destTV);
+    	        tl.addView(tr1,new TableLayout.LayoutParams(layoutParams));
       	         
       	        
       	        
