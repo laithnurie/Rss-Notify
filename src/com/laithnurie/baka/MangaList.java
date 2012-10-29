@@ -93,6 +93,7 @@ public class MangaList extends Activity {
     		
     		pd = new ProgressDialog(MangaList.this);
     		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+      		pd.setCanceledOnTouchOutside(false);
     		pd.setMax(100);
     		pd.show();
     		

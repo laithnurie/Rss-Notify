@@ -74,6 +74,7 @@ public class loadTubeJson extends AsyncTask<String, Integer, String> {
   	protected void onPreExecute() {
   		
   		pd = new ProgressDialog(TubeActivity.this);
+  		pd.setCanceledOnTouchOutside(false);
   		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
   		pd.setMax(100);
   		pd.show();
@@ -100,14 +101,16 @@ public class loadTubeJson extends AsyncTask<String, Integer, String> {
 	  	        }
   	    	} 
   	    	else {
-  	    		Log.e(TubeActivity.class.toString(), "Failed to download file");
+  	    		Log.e(TubeActivity.class.toString(), "Fetching Data request failed");
   	    	}
   	    } 
   	    catch (ClientProtocolException e) {
-  	      e.printStackTrace();
+  	    	
+  	    	Log.e(TubeActivity.class.toString(),  e.toString());
+  	     
   	    } 
   	    catch (IOException e) {
-  	      e.printStackTrace();
+  	    	Log.e(TubeActivity.class.toString(),  e.toString());
   	    }
   	    return builder.toString();
   	} 

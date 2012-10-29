@@ -15,7 +15,7 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="From" />
+            android:text="@string/from" />
 
         <Spinner
             android:id="@+id/from_spinner"
@@ -26,7 +26,7 @@
             android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="To" />
+            android:text="@string/to" />
 
         <Spinner
             android:id="@+id/to_spinner"
@@ -37,7 +37,7 @@
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Get Train" />
+            android:text="@string/get_train" />
         
      </LinearLayout>
 

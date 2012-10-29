@@ -20,10 +20,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.graphics.Point;
 import android.util.Log;
-import android.view.Display;
-import android.view.WindowManager.LayoutParams;
+import android.util.TypedValue;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -58,6 +56,7 @@ public class NationalTrains extends Activity {
       		
       		pd = new ProgressDialog(NationalTrains.this);
       		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+      		pd.setCanceledOnTouchOutside(false);
       		pd.setMax(100);
       		pd.show();
       		
@@ -116,24 +115,10 @@ public class NationalTrains extends Activity {
 	
 	      	TableLayout tl = (TableLayout)findViewById(R.id.trainsTable);
 	      	
-	      	Display display = getWindowManager().getDefaultDisplay();
-	      	Point size = new Point();
-	      	display.getSize(size);
-	      	int width = size.x;
-	      	
-	      	String widthx = Integer.toString(width);
-	      	
-	        Toast.makeText(getApplicationContext(),widthx, Toast.LENGTH_SHORT).show();
-
-	      	
-	      	TableLayout.LayoutParams layoutParams =
-	      		    new TableLayout.LayoutParams(width, LayoutParams.MATCH_PARENT);
-	      	
       		try {
-      	      JSONObject trainJson = new JSONObject(result);
-      	      
+      			
+      			JSONObject trainJson = new JSONObject(result);
       	        JSONArray linesList = trainJson.getJSONArray("trains");
-      	            	      
     	        
     	        Log.v("trains", "lineList:" +linesList.length());
 
@@ -143,35 +128,36 @@ public class NationalTrains extends Activity {
       	    	  
       	        JSONArray line = linesList.getJSONArray(i);
       	        String time = line.getString(1);
-      	        String dest = line.getString(2);
-      	        String status = line.getString(3);
-      
+      	        String dest = line.getString(2).replace("amp;", "");
+      	        String status = line.getString(3).replace("&lt;br/&gt;", "");
+      	        
+      	        int dip = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) 1, getResources().getDisplayMetrics());
     	        
     	        tr1 = (TableRow) new TableRow(getApplicationContext());
     	        
     	        timeTV=new TextView(getApplicationContext());
+    	        timeTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
     	        timeTV.setText(time);
     	        timeTV.setBackgroundColor(getResources().getColor(R.color.status));
     	        timeTV.setTextColor(getResources().getColor(R.color.piccadily));
     	        
     	        statusTV=new TextView(getApplicationContext());
+    	        statusTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
     	        statusTV.setText(status);
     	        statusTV.setBackgroundColor(getResources().getColor(R.color.status));
     	        statusTV.setTextColor(getResources().getColor(R.color.piccadily));
-    	        
-    	        
+    	            	        
     	        destTV=new TextView(getApplicationContext());
+    	        destTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
     	        destTV.setText(dest);
     	        destTV.setBackgroundColor(getResources().getColor(R.color.status));
-    	        destTV.setTextColor(getResources().getColor(R.color.piccadily));   
+    	        destTV.setTextColor(getResources().getColor(R.color.piccadily));
     	        
     	        tr1.addView(timeTV);
     	        tr1.addView(statusTV);
     	        tr1.addView(destTV);
-    	        tl.addView(tr1,new TableLayout.LayoutParams(layoutParams));
-      	         
-      	        
-      	        
+    	        tl.addView(tr1);
+      	               	        
       	      }
       	    } catch (Exception e) {
       	      e.printStackTrace();
