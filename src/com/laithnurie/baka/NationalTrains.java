@@ -20,12 +20,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.TableLayout;
+import android.widget.TableLayout.LayoutParams;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class NationalTrains extends Activity {
 
@@ -114,7 +117,9 @@ public class NationalTrains extends Activity {
 	      	TextView destTV;
 	
 	      	TableLayout tl = (TableLayout)findViewById(R.id.trainsTable);
+
 	      	
+
       		try {
       			
       			JSONObject trainJson = new JSONObject(result);
@@ -124,45 +129,60 @@ public class NationalTrains extends Activity {
 
 
       	      
-      	      for (int i = 0; i < linesList.length(); i++) {
-      	    	  
-      	        JSONArray line = linesList.getJSONArray(i);
-      	        String time = line.getString(1);
-      	        String dest = line.getString(2).replace("amp;", "");
-      	        String status = line.getString(3).replace("&lt;br/&gt;", "");
-      	        
-      	        int dip = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) 1, getResources().getDisplayMetrics());
-    	        
-    	        tr1 = (TableRow) new TableRow(getApplicationContext());
-    	        
-    	        timeTV=new TextView(getApplicationContext());
-    	        timeTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
-    	        timeTV.setText(time);
-    	        timeTV.setBackgroundColor(getResources().getColor(R.color.status));
-    	        timeTV.setTextColor(getResources().getColor(R.color.piccadily));
-    	        
-    	        statusTV=new TextView(getApplicationContext());
-    	        statusTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
-    	        statusTV.setText(status);
-    	        statusTV.setBackgroundColor(getResources().getColor(R.color.status));
-    	        statusTV.setTextColor(getResources().getColor(R.color.piccadily));
-    	            	        
-    	        destTV=new TextView(getApplicationContext());
-    	        destTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
-    	        destTV.setText(dest);
-    	        destTV.setBackgroundColor(getResources().getColor(R.color.status));
-    	        destTV.setTextColor(getResources().getColor(R.color.piccadily));
-    	        
-    	        tr1.addView(timeTV);
-    	        tr1.addView(statusTV);
-    	        tr1.addView(destTV);
-    	        tl.addView(tr1);
-      	               	        
-      	      }
-      	    } catch (Exception e) {
-      	      e.printStackTrace();
-      	    }
-      		pd.dismiss();
-          }
+	      	      	for (int i = 0; i < linesList.length(); i++) {
+	      	    	  
+		      	        JSONArray line = linesList.getJSONArray(i);
+		      	        String time = line.getString(1);
+		      	        String dest = line.getString(2).replace("amp;", "");
+		      	        String status = line.getString(3).replace("&lt;br/&gt;", "");
+		      	        
+		      	        int dip = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) 1, getResources().getDisplayMetrics());
+		    	        
+		    	        tr1 = (TableRow) new TableRow(getApplicationContext());
+		    	        tr1.setGravity(Gravity.CENTER);
+		    	        tr1.setBackgroundColor(getResources().getColor(R.color.status));
+		    	        
+		    	        
+		    	        timeTV=new TextView(getApplicationContext());
+		    	        timeTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
+		    	        timeTV.setText(time);
+		    	        timeTV.setTextColor(getResources().getColor(R.color.piccadily));
+		    	        timeTV.setWidth(100*dip);
+
+		    	        
+		    	        statusTV=new TextView(getApplicationContext());
+		    	        statusTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
+		    	        statusTV.setText(status);
+		    	        statusTV.setTextColor(getResources().getColor(R.color.piccadily));
+		    	        statusTV.setWidth(100*dip);
+
+		    	            	        
+		    	        destTV=new TextView(getApplicationContext());
+		    	        destTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
+		    	        destTV.setText(dest);
+		    	        destTV.setTextColor(getResources().getColor(R.color.piccadily));
+		    	        destTV.setWidth(100*dip);
+		    	        
+		    	        tr1.addView(timeTV);
+		    	        tr1.addView(statusTV);
+		    	        tr1.addView(destTV);
+		    	        
+		    	        View v = new View(getApplicationContext());
+
+		    	        
+		    	        v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 1));
+		    	        v.setBackgroundColor(Color.rgb(51, 51, 51));
+		    	        
+
+		    	        tl.addView(tr1);
+		    	        tl.addView(v);
+
+	      	               	        
+	      	      }
+	      	  } catch (Exception e) {
+	      	      e.printStackTrace();
+	      	    }
+	      		pd.dismiss();
+	          }
       }
 }
