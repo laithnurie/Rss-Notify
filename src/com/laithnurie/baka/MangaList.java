@@ -93,6 +93,7 @@ public class MangaList extends Activity {
     		
     		pd = new ProgressDialog(MangaList.this);
     		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+      		pd.setCanceledOnTouchOutside(false);
     		pd.setMax(100);
     		pd.show();
     		
@@ -192,7 +193,7 @@ public class MangaList extends Activity {
     	
     	@Override
         protected void onPostExecute(ArrayList<Manga> result) {
-    		lv.setAdapter(new MyCustomBaseAdapter(MangaList.this, result));
+    		lv.setAdapter(new mangaAdapter(MangaList.this, result));
     		pd.dismiss();
         }
     }

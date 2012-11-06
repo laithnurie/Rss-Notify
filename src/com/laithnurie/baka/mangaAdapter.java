@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class MyCustomBaseAdapter extends BaseAdapter {
+public class mangaAdapter extends BaseAdapter {
     private static ArrayList<Manga> mangaList;
     private LayoutInflater mInflater;
  
-    public MyCustomBaseAdapter(Context context, ArrayList<Manga> results) {
+    public mangaAdapter(Context context, ArrayList<Manga> results) {
         mangaList = results;
         mInflater = LayoutInflater.from(context);
     }

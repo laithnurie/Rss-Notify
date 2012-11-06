@@ -20,8 +20,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.util.Log;
-import android.widget.Toast;
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TableLayout;
+import android.widget.TableLayout.LayoutParams;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 public class NationalTrains extends Activity {
 
@@ -37,7 +44,7 @@ public class NationalTrains extends Activity {
         fromStation = extras.getString("from");
         toStation = extras.getString("to");
         
-       trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom="+fromStation+"&liveTrainsTo=&serviceId=";
+        trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom="+fromStation+"&liveTrainsTo=&serviceId=";
         new loadTubeJson().execute();
 
     }
@@ -52,6 +59,7 @@ public class NationalTrains extends Activity {
       		
       		pd = new ProgressDialog(NationalTrains.this);
       		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+      		pd.setCanceledOnTouchOutside(false);
       		pd.setMax(100);
       		pd.show();
       		
@@ -100,37 +108,81 @@ public class NationalTrains extends Activity {
       	
       	@Override
           protected void onPostExecute(String result) {
+      		
+      		
+      		TableRow  tr1;  
+	      	//TableRow  tr2;    
+	      	TextView statusTV;
+	      	TextView timeTV;
+	      	TextView destTV;
+	
+	      	TableLayout tl = (TableLayout)findViewById(R.id.trainsTable);
+
+	      	
+
       		try {
-      	      JSONObject trainJson = new JSONObject(result);
-      	      
+      			
+      			JSONObject trainJson = new JSONObject(result);
       	        JSONArray linesList = trainJson.getJSONArray("trains");
-      	        
-      	        String length = Integer.toString(linesList.length());
-    	      
-    	        Toast.makeText(getApplicationContext(), length, Toast.LENGTH_SHORT).show();
     	        
     	        Log.v("trains", "lineList:" +linesList.length());
 
 
       	      
-      	      for (int i = 0; i < linesList.length(); i++) {
-      	    	  
-      	        JSONArray line = linesList.getJSONArray(i);
-      	        String lineName = line.getString(0);
-      	        String line1 = line.getString(1);
-      	        String line2 = line.getString(2);
-        	    
+	      	      	for (int i = 0; i < linesList.length(); i++) {
+	      	    	  
+		      	        JSONArray line = linesList.getJSONArray(i);
+		      	        String time = line.getString(1);
+		      	        String dest = line.getString(2).replace("amp;", "");
+		      	        String status = line.getString(3).replace("&lt;br/&gt;", "");
+		      	        
+		      	        int dip = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) 1, getResources().getDisplayMetrics());
+		    	        
+		    	        tr1 = (TableRow) new TableRow(getApplicationContext());
+		    	        tr1.setGravity(Gravity.CENTER);
+		    	        tr1.setBackgroundColor(getResources().getColor(R.color.status));
+		    	        
+		    	        
+		    	        timeTV=new TextView(getApplicationContext());
+		    	        timeTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
+		    	        timeTV.setText(time);
+		    	        timeTV.setTextColor(getResources().getColor(R.color.piccadily));
+		    	        timeTV.setWidth(100*dip);
 
-      	        
-    	        Toast.makeText(getApplicationContext(), line2 + " " +line1, Toast.LENGTH_SHORT).show();
-      	         
-      	        
-      	        
-      	      }
-      	    } catch (Exception e) {
-      	      e.printStackTrace();
-      	    }
-      		pd.dismiss();
-          }
+		    	        
+		    	        statusTV=new TextView(getApplicationContext());
+		    	        statusTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
+		    	        statusTV.setText(status);
+		    	        statusTV.setTextColor(getResources().getColor(R.color.piccadily));
+		    	        statusTV.setWidth(100*dip);
+
+		    	            	        
+		    	        destTV=new TextView(getApplicationContext());
+		    	        destTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
+		    	        destTV.setText(dest);
+		    	        destTV.setTextColor(getResources().getColor(R.color.piccadily));
+		    	        destTV.setWidth(100*dip);
+		    	        
+		    	        tr1.addView(timeTV);
+		    	        tr1.addView(statusTV);
+		    	        tr1.addView(destTV);
+		    	        
+		    	        View v = new View(getApplicationContext());
+
+		    	        
+		    	        v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 1));
+		    	        v.setBackgroundColor(Color.rgb(51, 51, 51));
+		    	        
+
+		    	        tl.addView(tr1);
+		    	        tl.addView(v);
+
+	      	               	        
+	      	      }
+	      	  } catch (Exception e) {
+	      	      e.printStackTrace();
+	      	    }
+	      		pd.dismiss();
+	          }
       }
 }

@@ -15,10 +15,14 @@
     <string name="title_activity_tube">TubeActivity</string>
     <string name="title_activity_travel">Travel</string>
     <string name="title_activity_national_rail">NationalRail</string>
-
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="get_train">Get Train</string>
+    
+    
     <string-array name="station_name">
         <item>BFD</item>
-        <item>Canterbury</item>
+        <item>CBW</item>
         <item>STP</item>
     </string-array>
 
