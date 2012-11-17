@@ -71,6 +71,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.laithnurie.baka.NationalRail" />
         </activity>
+        <activity
+            android:name=".WeatherJson"
+            android:label="@string/title_activity_weather_json" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

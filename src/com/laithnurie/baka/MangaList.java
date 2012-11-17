@@ -12,6 +12,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
+import com.laithnurie.baka.library.mangaAdapter;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;

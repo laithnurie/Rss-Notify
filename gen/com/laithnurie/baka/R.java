@@ -108,8 +108,9 @@ public final class R {
         public static final int activity_national_trains=0x7f030005;
         public static final int activity_travel=0x7f030006;
         public static final int activity_tube=0x7f030007;
-        public static final int custom_row_view=0x7f030008;
-        public static final int main=0x7f030009;
+        public static final int activity_weather_json=0x7f030008;
+        public static final int custom_row_view=0x7f030009;
+        public static final int main=0x7f03000a;
     }
     public static final class menu {
         public static final int activity_dashboard=0x7f080000;
@@ -120,29 +121,30 @@ public final class R {
         public static final int activity_national_trains=0x7f080005;
         public static final int activity_travel=0x7f080006;
         public static final int activity_tube=0x7f080007;
+        public static final int activity_weather_json=0x7f080008;
     }
     public static final class string {
         public static final int app_name=0x7f040002;
-        public static final int bakerloo=0x7f040014;
+        public static final int bakerloo=0x7f040015;
         public static final int bleach=0x7f040000;
-        public static final int central=0x7f040015;
-        public static final int circle=0x7f040016;
-        public static final int district=0x7f040017;
-        public static final int dlr=0x7f040018;
+        public static final int central=0x7f040016;
+        public static final int circle=0x7f040017;
+        public static final int district=0x7f040018;
+        public static final int dlr=0x7f040019;
         public static final int from=0x7f040010;
         public static final int get_train=0x7f040012;
-        public static final int hammersmith=0x7f040019;
+        public static final int hammersmith=0x7f04001a;
         public static final int hello_world=0x7f040005;
-        public static final int jubilee=0x7f04001a;
+        public static final int jubilee=0x7f04001b;
         public static final int manga=0x7f040008;
         public static final int menu_settings=0x7f040003;
-        public static final int metropolitan=0x7f04001b;
+        public static final int metropolitan=0x7f04001c;
         public static final int naruto=0x7f040001;
         public static final int national=0x7f04000b;
-        public static final int northern=0x7f04001c;
-        public static final int overground=0x7f04001d;
-        public static final int piccadily=0x7f04001e;
-        public static final int status=0x7f040021;
+        public static final int northern=0x7f04001d;
+        public static final int overground=0x7f04001e;
+        public static final int piccadily=0x7f04001f;
+        public static final int status=0x7f040022;
         public static final int title_activity_dashboard=0x7f04000c;
         public static final int title_activity_main=0x7f040007;
         public static final int title_activity_manga_list=0x7f040004;
@@ -151,11 +153,12 @@ public final class R {
         public static final int title_activity_national_trains=0x7f040013;
         public static final int title_activity_travel=0x7f04000e;
         public static final int title_activity_tube=0x7f04000d;
+        public static final int title_activity_weather_json=0x7f040014;
         public static final int to=0x7f040011;
         public static final int travel=0x7f040009;
         public static final int tube=0x7f04000a;
-        public static final int victoria=0x7f04001f;
-        public static final int waterloo=0x7f040020;
+        public static final int victoria=0x7f040020;
+        public static final int waterloo=0x7f040021;
     }
     public static final class style {
         public static final int DashboardButton=0x7f060000;
