@@ -3,9 +3,7 @@ package com.laithnurie.baka;
 import java.util.ArrayList;
 
 import com.laithnurie.baka.Manga;
-import com.laithnurie.baka.R;
-import com.laithnurie.baka.R.id;
-import com.laithnurie.baka.R.layout;
+
 
 import android.content.Context;
 import android.view.LayoutInflater;
