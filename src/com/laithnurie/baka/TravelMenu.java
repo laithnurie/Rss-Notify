@@ -1,6 +1,5 @@
 package com.laithnurie.baka;
 
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;

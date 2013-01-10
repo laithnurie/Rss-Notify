@@ -23,6 +23,8 @@
         <item>BFD</item>
         <item>CBW</item>
         <item>STP</item>
+        <item>SYL</item>
+        
     </string-array>
 
     <string name="title_activity_national_trains">NationalTrains</string>
