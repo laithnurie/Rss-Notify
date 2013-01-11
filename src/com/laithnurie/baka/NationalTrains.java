@@ -42,16 +42,14 @@ public class NationalTrains extends Activity {
         Bundle extras = getIntent().getExtras();
         fromStation = extras.getString("from");
         toStation = extras.getString("to");
-        
+
         trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom="+fromStation+"&liveTrainsTo=&serviceId=";
         new loadTubeJson().execute();
-
     }
 
     public class loadTubeJson extends AsyncTask<String, Integer, String> {
       	
       	ProgressDialog pd;
-
 
       	@Override
       	protected void onPreExecute() {
@@ -68,10 +66,8 @@ public class NationalTrains extends Activity {
       	protected String doInBackground(final String... params) {
       		StringBuilder builder = new StringBuilder();
       	    HttpClient client = new DefaultHttpClient();
-      	    
-      	   
-
       	    HttpGet httpGet = new HttpGet(trainUrlDate);
+      	    
       	    try {
       	    	HttpResponse response = client.execute(httpGet);
       	    	StatusLine statusLine = response.getStatusLine();
@@ -106,8 +102,7 @@ public class NationalTrains extends Activity {
       	}
       	
       	@Override
-          protected void onPostExecute(String result) {
-      		
+      	protected void onPostExecute(String result) {
       		
       		TableRow  tr1;  
 	      	//TableRow  tr2;    
@@ -116,72 +111,61 @@ public class NationalTrains extends Activity {
 	      	TextView destTV;
 	
 	      	TableLayout tl = (TableLayout)findViewById(R.id.trainsTable);
-
-	      	
-
-      		try {
+      		
+	      	try {
       			
       			JSONObject trainJson = new JSONObject(result);
       	        JSONArray linesList = trainJson.getJSONArray("trains");
-    	        
     	        Log.v("trains", "lineList:" +linesList.length());
 
-
-      	      
-	      	      	for (int i = 0; i < linesList.length(); i++) {
-	      	    	  
-		      	        JSONArray line = linesList.getJSONArray(i);
-		      	        String time = line.getString(1);
-		      	        String dest = line.getString(2).replace("amp;", "");
-		      	        String status = line.getString(3).replace("&lt;br/&gt;", "");
-		      	        
-		      	        int dip = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) 1, getResources().getDisplayMetrics());
-		    	        
-		    	        tr1 = (TableRow) new TableRow(getApplicationContext());
-		    	        tr1.setGravity(Gravity.CENTER);
-		    	        tr1.setBackgroundColor(getResources().getColor(R.color.status));
-		    	        
-		    	        
-		    	        timeTV=new TextView(getApplicationContext());
-		    	        timeTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
-		    	        timeTV.setText(time);
-		    	        timeTV.setTextColor(getResources().getColor(R.color.piccadily));
-		    	        timeTV.setWidth(100*dip);
-
-		    	        
-		    	        statusTV=new TextView(getApplicationContext());
-		    	        statusTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
-		    	        statusTV.setText(status);
-		    	        statusTV.setTextColor(getResources().getColor(R.color.piccadily));
-		    	        statusTV.setWidth(100*dip);
-
-		    	            	        
-		    	        destTV=new TextView(getApplicationContext());
-		    	        destTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
-		    	        destTV.setText(dest);
-		    	        destTV.setTextColor(getResources().getColor(R.color.piccadily));
-		    	        destTV.setWidth(100*dip);
-		    	        
-		    	        tr1.addView(timeTV);
-		    	        tr1.addView(statusTV);
-		    	        tr1.addView(destTV);
-		    	        
-		    	        View v = new View(getApplicationContext());
-
-		    	        
-		    	        v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 1));
-		    	        v.setBackgroundColor(Color.rgb(51, 51, 51));
-		    	        
-
-		    	        tl.addView(tr1);
-		    	        tl.addView(v);
-
-	      	               	        
-	      	      }
-	      	  } catch (Exception e) {
-	      	      e.printStackTrace();
-	      	    }
-	      		pd.dismiss();
-	          }
-      }
+      	      	for (int i = 0; i < linesList.length(); i++) {
+      	    	  
+	      	        JSONArray line = linesList.getJSONArray(i);
+	      	        String time = line.getString(1);
+	      	        String dest = line.getString(2).replace("amp;", "");
+	      	        String status = line.getString(3).replace("&lt;br/&gt;", "");
+	      	        
+	      	        int dip = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) 1, getResources().getDisplayMetrics());
+	    	        
+	    	        tr1 = (TableRow) new TableRow(getApplicationContext());
+	    	        tr1.setGravity(Gravity.CENTER);
+	    	        tr1.setBackgroundColor(getResources().getColor(R.color.status));
+	    	        
+	    	        timeTV=new TextView(getApplicationContext());
+	    	        timeTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
+	    	        timeTV.setText(time);
+	    	        timeTV.setTextColor(getResources().getColor(R.color.piccadily));
+	    	        timeTV.setWidth(100*dip);
+	    	        
+	    	        statusTV=new TextView(getApplicationContext());
+	    	        statusTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
+	    	        statusTV.setText(status);
+	    	        statusTV.setTextColor(getResources().getColor(R.color.piccadily));
+	    	        statusTV.setWidth(100*dip);
+	    	            	        
+	    	        destTV=new TextView(getApplicationContext());
+	    	        destTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
+	    	        destTV.setText(dest);
+	    	        destTV.setTextColor(getResources().getColor(R.color.piccadily));
+	    	        destTV.setWidth(100*dip);
+	    	        
+	    	        tr1.addView(timeTV);
+	    	        tr1.addView(statusTV);
+	    	        tr1.addView(destTV);
+	    	        
+	    	        View v = new View(getApplicationContext());
+	    	        
+	    	        v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 1));
+	    	        v.setBackgroundColor(Color.rgb(51, 51, 51));
+	    	        
+	    	        tl.addView(tr1);
+	    	        tl.addView(v);
+      	      	}
+	      	} 
+      		catch (Exception e) {
+      			e.printStackTrace();
+	      	}
+	      	pd.dismiss();
+      	}
+    }
 }

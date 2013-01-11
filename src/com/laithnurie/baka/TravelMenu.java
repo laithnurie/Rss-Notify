@@ -46,7 +46,6 @@ public class TravelMenu extends Activity {
         getMenuInflater().inflate(R.menu.activity_travel, menu);
         return true;
     }
-
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -57,5 +56,4 @@ public class TravelMenu extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

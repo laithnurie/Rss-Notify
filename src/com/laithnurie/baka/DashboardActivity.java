@@ -40,13 +40,10 @@ public class DashboardActivity extends Activity {
                 default:
                     break;
             }
+            
             if(i != null) {
                 startActivity(i);
             }
         }
     }
-    
-    
 }
-
-

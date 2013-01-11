@@ -34,7 +34,6 @@ public class MangaList extends Activity {
     ListView lv;
     int noOfMangas;
     
-    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,19 +56,15 @@ public class MangaList extends Activity {
             	i.putExtra("mangaPage", fullObject.getManga());
             	startActivity(i);
             }
-
         });    
     }
     
-    
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_manga_list, menu);
         return true;
     }
 
-    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -80,15 +75,11 @@ public class MangaList extends Activity {
         return super.onOptionsItemSelected(item);
     }
     
-    
-    
     public class loadMangaList extends AsyncTask<String, Integer, ArrayList<Manga>> {
     	
     	ProgressDialog pd;
     	String passedParam;
         Manga sr ;
-
-
 
     	@Override
     	protected void onPreExecute() {
@@ -98,7 +89,6 @@ public class MangaList extends Activity {
       		pd.setCanceledOnTouchOutside(false);
     		pd.setMax(100);
     		pd.show();
-    		
     	}
     	
     	@Override
@@ -106,6 +96,7 @@ public class MangaList extends Activity {
     		searchResults = new ArrayList<Manga>();
             searchResults.clear();      	    		
     		passedParam = params[0];
+    	
     		try {
     	
     			URL url = new URL("http://www.mangahere.com/rss/"+passedParam+".xml");
@@ -117,45 +108,31 @@ public class MangaList extends Activity {
     			NodeList nodeList = doc.getElementsByTagName("item");
     			noOfMangas =nodeList.getLength();
     	
-
-    			
     			for (int i = 0; i < noOfMangas; i++) {
     				
     		        sr = new Manga();
-
-    					
     				Node node = nodeList.item(i);
-    	
-
-    	
     				Element fstElmnt = (Element) node;
-    				
     				NodeList titleList = fstElmnt.getElementsByTagName("title");
     				Element titleElement = (Element) titleList.item(0);
     				titleList = titleElement.getChildNodes();
+    				
     				if (titleList.item(0) !=null) {
     					sr.setChapter(((Node) titleList.item(0)).getNodeValue());
-    	
     				}
     				else {
     					sr.setChapter("There is no Title");
     				}	
     				
-    	
     				NodeList linkList = fstElmnt.getElementsByTagName("link");
     				Element linkElement = (Element) linkList.item(0);
     				linkList = linkElement.getChildNodes();
     				if (linkList.item(0) !=null) {
- 
-    					
     					sr.setManga(((Node) linkList.item(0)).getNodeValue());
-
-    	
     				}
     				else {
     					sr.setManga("no link available");
     				}
-    	
     				
     				NodeList descList = fstElmnt.getElementsByTagName("description");
     				Element descElement = (Element) descList.item(0);

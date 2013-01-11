@@ -49,5 +49,4 @@ public class Manga {
 		public String getDate() {
 			return pubDate;
 		}
-			
 }

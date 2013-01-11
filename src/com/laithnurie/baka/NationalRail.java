@@ -35,22 +35,19 @@ public class NationalRail extends Activity {
         to.setAdapter(adapter);
         
         button = (Button) findViewById(R.id.button1);
-        
 		button.setOnClickListener(new OnClickListener() {
  
 			@Override
 			public void onClick(View arg0) {
  
-			String fromValue = from.getSelectedItem().toString();
-			String toValue = to.getSelectedItem().toString();
-						
-			Intent nationalTrains = new Intent(getApplicationContext(), NationalTrains.class);
-			nationalTrains.putExtra("from", fromValue);
-			nationalTrains.putExtra("to",toValue);
-        	startActivity(nationalTrains);
- 
+				String fromValue = from.getSelectedItem().toString();
+				String toValue = to.getSelectedItem().toString();
+							
+				Intent nationalTrains = new Intent(getApplicationContext(), NationalTrains.class);
+				nationalTrains.putExtra("from", fromValue);
+				nationalTrains.putExtra("to",toValue);
+	        	startActivity(nationalTrains);
 			}
- 
 		});
     }
 
@@ -59,7 +56,6 @@ public class NationalRail extends Activity {
         getMenuInflater().inflate(R.menu.activity_national_rail, menu);
         return true;
     }
-
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

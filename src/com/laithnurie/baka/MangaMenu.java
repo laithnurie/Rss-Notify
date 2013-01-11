@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+
 public class MangaMenu extends Activity {
 	
 	@Override
@@ -13,14 +14,10 @@ public class MangaMenu extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		
-		
 		DashboardClickListener dBClickListener = new DashboardClickListener();
         findViewById(R.id.narutoBtn).setOnClickListener(dBClickListener);
         findViewById(R.id.bleachBtn).setOnClickListener(dBClickListener);
         findViewById(R.id.onepieceBtn).setOnClickListener(dBClickListener);
-		
-		
-		
 	}
 	
 	private class DashboardClickListener implements OnClickListener {
@@ -39,9 +36,10 @@ public class MangaMenu extends Activity {
                 default:
                     break;
             }
-
         }
-}
+	
+	}
+	
 	public void mangaIntentSwitcher(String manga)
 	{
 		Intent i = new Intent(getApplicationContext(), MangaList.class);

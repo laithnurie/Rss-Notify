@@ -69,7 +69,6 @@ public class loadTubeJson extends AsyncTask<String, Integer, String> {
   	
   	ProgressDialog pd;
 
-
   	@Override
   	protected void onPreExecute() {
   		
@@ -78,7 +77,6 @@ public class loadTubeJson extends AsyncTask<String, Integer, String> {
   		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
   		pd.setMax(100);
   		pd.show();
-  		
   	}
   	
   	@Override
@@ -86,6 +84,7 @@ public class loadTubeJson extends AsyncTask<String, Integer, String> {
   		StringBuilder builder = new StringBuilder();
   	    HttpClient client = new DefaultHttpClient();
   	    HttpGet httpGet = new HttpGet("http://api.tubeupdates.com/?method=get.status");
+  	    
   	    try {
   	    	HttpResponse response = client.execute(httpGet);
   	    	StatusLine statusLine = response.getStatusLine();
@@ -124,57 +123,55 @@ public class loadTubeJson extends AsyncTask<String, Integer, String> {
   	@Override
       protected void onPostExecute(String result) {
   		try {
-  	      JSONObject tubeJson = new JSONObject(result);
-	      JSONObject response = tubeJson.getJSONObject("response");
-	      JSONArray linesList = response.getJSONArray("lines");
+  			
+			JSONObject tubeJson = new JSONObject(result);
+			JSONObject response = tubeJson.getJSONObject("response");
+			JSONArray linesList = response.getJSONArray("lines");
   	      
-  	      for (int i = 0; i < linesList.length(); i++) {
-  	    	  
-  	        JSONObject line = linesList.getJSONObject(i);
-  	        String lineName = line.getString("name");
-  	        String lineStatus = line.getString("status");
-  	        
-  	        Log.i("tube", lineName +" : " + lineStatus);
-  	         
-			  switch (i) {
-				  case 0:  bakerloo.setText(lineStatus);
-				           break;
-				  case 1:  central.setText(lineStatus);
-				           break;
-				  case 2:  circle.setText(lineStatus);
-				           break;
-				  case 3:  district.setText(lineStatus);
-				           break;
-				  case 4:  dlr.setText(lineStatus);
-				           break;
-				  case 5:  hammersmith.setText(lineStatus);
-				           break;
-				  case 6:  jubilee.setText(lineStatus);
-				           break;
-				  case 7:  metropolitan.setText(lineStatus);
-				           break;
-				  case 8:  northern.setText(lineStatus);
-				  		   break;    
-				  case 9:  overground.setText(lineStatus);
-				           break;
-				  case 10: piccadily.setText(lineStatus);
-				           break;
-				  case 11: victoria.setText(lineStatus);
-				           break;
-				  case 12: waterloocity.setText(lineStatus);
-				           break;
-				  default:
-				           break;
+			for (int i = 0; i < linesList.length(); i++) {
+				  
+			    JSONObject line = linesList.getJSONObject(i);
+			    String lineName = line.getString("name");
+			    String lineStatus = line.getString("status");
+			    
+			    Log.i("tube", lineName +" : " + lineStatus);
+			     
+				switch (i) {
+					  case 0:  bakerloo.setText(lineStatus);
+					           break;
+					  case 1:  central.setText(lineStatus);
+					           break;
+					  case 2:  circle.setText(lineStatus);
+					           break;
+					  case 3:  district.setText(lineStatus);
+					           break;
+					  case 4:  dlr.setText(lineStatus);
+					           break;
+					  case 5:  hammersmith.setText(lineStatus);
+					           break;
+					  case 6:  jubilee.setText(lineStatus);
+					           break;
+					  case 7:  metropolitan.setText(lineStatus);
+					           break;
+					  case 8:  northern.setText(lineStatus);
+					  		   break;    
+					  case 9:  overground.setText(lineStatus);
+					           break;
+					  case 10: piccadily.setText(lineStatus);
+					           break;
+					  case 11: victoria.setText(lineStatus);
+					           break;
+					  case 12: waterloocity.setText(lineStatus);
+					           break;
+					  default:
+					           break;
+				}
 			  }
-  	        
-  	        
-  	      }
-  	    } catch (Exception e) {
+  	    } 
+  		catch (Exception e) {
   	      e.printStackTrace();
   	    }
   		pd.dismiss();
       }
   }
-
-
 } 

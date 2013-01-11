@@ -46,7 +46,6 @@ public class DashboardLayout extends ViewGroup {
             }
 
             child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
-
             mMaxChildWidth = Math.max(mMaxChildWidth, child.getMeasuredWidth());
             mMaxChildHeight = Math.max(mMaxChildHeight, child.getMeasuredHeight());
         }
