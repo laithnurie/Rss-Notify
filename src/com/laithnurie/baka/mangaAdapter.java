@@ -43,8 +43,6 @@ public class mangaAdapter extends BaseAdapter {
             holder.txtDesc = (TextView) convertView.findViewById(R.id.desc);
             holder.txtDate = (TextView) convertView.findViewById(R.id.pubDate);
 
-            
- 
             convertView.setTag(holder);
         } 
         else {
@@ -55,8 +53,6 @@ public class mangaAdapter extends BaseAdapter {
         holder.txtChapter.setText(mangaList.get(position).getChapter());
         holder.txtDesc.setText(mangaList.get(position).getDesc());
         holder.txtDate.setText(mangaList.get(position).getDate());
-
- 
         return convertView;
     }
  
