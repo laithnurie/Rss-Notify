@@ -34,6 +34,8 @@ public class NationalTrains extends Activity {
 	String fromStation;
 	String toStation;
 	String trainUrlDate;
+    int dip;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,7 @@ public class NationalTrains extends Activity {
         Bundle extras = getIntent().getExtras();
         fromStation = extras.getString("from");
         toStation = extras.getString("to");
+        dip = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) 1, getResources().getDisplayMetrics());
 
         trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom="+fromStation+"&liveTrainsTo="+toStation+"&serviceId=";
         new loadTubeJson().execute();
@@ -104,13 +107,16 @@ public class NationalTrains extends Activity {
       	@Override
       	protected void onPostExecute(String result) {
       		
-      		TableRow  tr1;  
-	      	//TableRow  tr2;    
 	      	TextView statusTV;
 	      	TextView timeTV;
 	      	TextView destTV;
-	
+
 	      	TableLayout tl = (TableLayout)findViewById(R.id.trainsTable);
+	      	
+	      	View v = new View(getApplicationContext());
+	        
+	        v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 1));
+	        v.setBackgroundColor(Color.rgb(50, 50, 50));
       		
 	      	try {
       			
@@ -124,41 +130,12 @@ public class NationalTrains extends Activity {
 	      	        String time = line.getString(1);
 	      	        String dest = line.getString(2).replace("amp;", "");
 	      	        String status = line.getString(3).replace("&lt;br/&gt;", "");
-	      	        
-	      	        int dip = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) 1, getResources().getDisplayMetrics());
-	    	        
-	    	        tr1 = (TableRow) new TableRow(getApplicationContext());
-	    	        tr1.setGravity(Gravity.CENTER);
-	    	        tr1.setBackgroundColor(getResources().getColor(R.color.status));
-	    	        
-	    	        timeTV=new TextView(getApplicationContext());
-	    	        timeTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
-	    	        timeTV.setText(time);
-	    	        timeTV.setTextColor(getResources().getColor(R.color.piccadily));
-	    	        timeTV.setWidth(100*dip);
-	    	        
-	    	        statusTV=new TextView(getApplicationContext());
-	    	        statusTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
-	    	        statusTV.setText(status);
-	    	        statusTV.setTextColor(getResources().getColor(R.color.piccadily));
-	    	        statusTV.setWidth(100*dip);
-	    	            	        
-	    	        destTV=new TextView(getApplicationContext());
-	    	        destTV.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
-	    	        destTV.setText(dest);
-	    	        destTV.setTextColor(getResources().getColor(R.color.piccadily));
-	    	        destTV.setWidth(100*dip);
-	    	        
-	    	        tr1.addView(timeTV);
-	    	        tr1.addView(statusTV);
-	    	        tr1.addView(destTV);
-	    	        
-	    	        View v = new View(getApplicationContext());
-	    	        
-	    	        v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 1));
-	    	        v.setBackgroundColor(Color.rgb(51, 51, 51));
-	    	        
-	    	        tl.addView(tr1);
+    	        
+	    	        timeTV = rowTextView(time);
+	    	        destTV = rowTextView(dest);
+	    	        statusTV = rowTextView(status);    	            	        
+
+	    	        tl.addView(tableRow(timeTV,statusTV,destTV));
 	    	        tl.addView(v);
       	      	}
 	      	} 
@@ -167,5 +144,28 @@ public class NationalTrains extends Activity {
 	      	}
 	      	pd.dismiss();
       	}
+    }
+    
+    public TextView rowTextView(String rowText) {
+    	
+    	TextView cell = new TextView(getApplicationContext());
+        cell.setPadding(10*dip, 10*dip, 10*dip, 10*dip);
+        cell.setText(rowText);
+        cell.setTextColor(getResources().getColor(R.color.piccadily));
+        cell.setWidth(100*dip);
+    	
+		return cell;  	
+    }
+    
+    public TableRow tableRow(TextView timeTV, TextView statusTV, TextView destTV) {
+  		
+    	TableRow tr = (TableRow) new TableRow(getApplicationContext());
+        tr.setGravity(Gravity.CENTER);
+        tr.setBackgroundColor(getResources().getColor(R.color.status));
+    	tr.addView(timeTV);
+        tr.addView(statusTV);
+        tr.addView(destTV);
+        
+    	return tr;
     }
 }
