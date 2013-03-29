@@ -43,7 +43,7 @@ public class NationalTrains extends Activity {
         fromStation = extras.getString("from");
         toStation = extras.getString("to");
 
-        trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom="+fromStation+"&liveTrainsTo=&serviceId=";
+        trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom="+fromStation+"&liveTrainsTo="+toStation+"&serviceId=";
         new loadTubeJson().execute();
     }
 
