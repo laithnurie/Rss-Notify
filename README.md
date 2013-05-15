@@ -1,2 +1,4 @@
 Rss-Notify
 ==========
+
+Intellji studio
