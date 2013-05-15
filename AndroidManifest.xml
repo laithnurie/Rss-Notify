@@ -1,83 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.laithnurie.baka"
-    android:versionCode="1"
-    android:versionName="1.0" >
+          package="com.laithnurie.baka"
+          android:versionCode="1"
+          android:versionName="1.0">
 
-    <uses-sdk android:minSdkVersion="14" />
+    <uses-sdk android:minSdkVersion="14"/>
 
-    <uses-permission android:name="android.permission.INTERNET" >
-    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
 
     <application
-        android:icon="@drawable/icon"
-        android:label="@string/app_name"
-        android:theme="@android:style/Theme.Light" >
+            android:icon="@drawable/icon"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Light">
         <activity
-            android:name="DashboardActivity"
-            android:label="@string/title_activity_dashboard" >
+                android:name="DashboardActivity"
+                android:label="@string/title_activity_dashboard">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".MangaMenu"
-            android:label="@string/title_activity_manga_list" >
+                android:name=".MangaMenu"
+                android:label="@string/title_activity_manga_list">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.laithnurie.baka.DashboardActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.DashboardActivity"/>
         </activity>
         <activity
-            android:name=".MangaList"
-            android:label="@string/title_activity_manga_list" >
+                android:name=".MangaList"
+                android:label="@string/title_activity_manga_list">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.laithnurie.baka.MangaMenu" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.MangaMenu"/>
         </activity>
         <activity
-            android:name=".MangaViewer"
-            android:label="@string/title_activity_manga_viewer" >
+                android:name=".MangaViewer"
+                android:label="@string/title_activity_manga_viewer">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.laithnurie.baka.MangaList" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.MangaList"/>
         </activity>
         <activity
-            android:name=".TravelMenu"
-            android:label="@string/title_activity_travel" >
+                android:name=".TravelMenu"
+                android:label="@string/title_activity_travel">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.laithnurie.baka.DashboardActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.DashboardActivity"/>
         </activity>
         <activity
-            android:name=".TubeActivity"
-            android:label="@string/title_activity_tube" >
+                android:name=".TubeActivity"
+                android:label="@string/title_activity_tube">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.laithnurie.baka.TravelMenu" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.TravelMenu"/>
         </activity>
         <activity
-            android:name=".NationalRail"
-            android:label="@string/title_activity_national_rail" >
+                android:name=".NationalRail"
+                android:label="@string/title_activity_national_rail">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.laithnurie.baka.TravelMenu" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.TravelMenu"/>
         </activity>
         <activity
-            android:name=".NationalTrains"
-            android:label="@string/title_activity_national_trains" >
+                android:name=".NationalTrains"
+                android:label="@string/title_activity_national_trains">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.laithnurie.baka.NationalRail" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.NationalRail"/>
         </activity>
         <activity
-            android:name=".WeatherJson"
-            android:label="@string/title_activity_weather_json" >
+                android:name=".WeatherJson"
+                android:label="@string/title_activity_weather_json">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>

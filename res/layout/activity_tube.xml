@@ -1,24 +1,18 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relLayout1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center">
-
-    <LinearLayout
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/linearlayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-            
-            <TextView
+            android:layout_height="match_parent">
+
+        <TextView
                 android:id="@+id/bakerloo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -27,73 +21,73 @@
                 android:background="@color/bakerloo"
                 android:text="@string/bakerloo"
                 android:textColor="@color/status"
-                 />
+                />
 
-            <TextView
+        <TextView
                 android:id="@+id/baker_stat"
                 android:layout_width="0dp"
-                android:layout_height="match_parent" 
+                android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/status"
                 android:layout_weight="1"/>
-        </LinearLayout>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_weight="1"                               
+        <TextView
+                android:layout_weight="1"
                 android:id="@+id/central"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/central" 
+                android:text="@string/central"
                 android:background="@color/central"
                 android:textColor="@color/status"
                 />
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/central_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
-        </LinearLayout>
+                android:text="@string/status"/>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/circle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/circle"
-                android:textColor="@color/piccadily"                 
+                android:textColor="@color/piccadily"
                 android:background="@color/circle"/>
 
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/circle_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
-        </LinearLayout>
+                android:text="@string/status"/>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/district"
                 android:layout_width="0dp"
@@ -101,23 +95,23 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/district"
                 android:textColor="@color/status"
-                android:background="@color/district" />
+                android:background="@color/district"/>
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/district_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
-        </LinearLayout>
+                android:text="@string/status"/>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/dlr"
                 android:layout_width="0dp"
@@ -125,23 +119,23 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/dlr"
                 android:textColor="@color/status"
-                android:background="@color/dlr" />
+                android:background="@color/dlr"/>
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/dlr_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
-        </LinearLayout>
+                android:text="@string/status"/>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/hammersmith"
                 android:layout_width="0dp"
@@ -149,23 +143,23 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/hammersmith"
                 android:textColor="@color/piccadily"
-                android:background="@color/hammersmith" />
+                android:background="@color/hammersmith"/>
 
-            <TextView
-               android:layout_weight="1"
+        <TextView
+                android:layout_weight="1"
                 android:id="@+id/hammer_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
-        </LinearLayout>
+                android:text="@string/status"/>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/jubilee"
                 android:layout_width="0dp"
@@ -173,23 +167,23 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/jubilee"
                 android:textColor="@color/status"
-                android:background="@color/jubilee" />
+                android:background="@color/jubilee"/>
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/jubilee_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
-        </LinearLayout>
+                android:text="@string/status"/>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/metro"
                 android:layout_width="0dp"
@@ -197,23 +191,23 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/metropolitan"
                 android:textColor="@color/status"
-                android:background="@color/metropolitan" />
+                android:background="@color/metropolitan"/>
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/metro_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
-        </LinearLayout>
+                android:text="@string/status"/>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/northern"
                 android:layout_width="0dp"
@@ -221,24 +215,24 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/northern"
                 android:background="@color/northern"
-                android:textColor="@color/status" />
+                android:textColor="@color/status"/>
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/north_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" 
-                 />
-        </LinearLayout>
+                android:text="@string/status"
+                />
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/overground"
                 android:layout_width="0dp"
@@ -246,23 +240,23 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/overground"
                 android:textColor="@color/status"
-                android:background="@color/overground" />
+                android:background="@color/overground"/>
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/over_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
-        </LinearLayout>
+                android:text="@string/status"/>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/piccadily"
                 android:layout_width="0dp"
@@ -270,25 +264,25 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/piccadily"
                 android:textColor="@color/status"
-                android:background="@color/piccadily" />
+                android:background="@color/piccadily"/>
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/piccadily_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
-        </LinearLayout>
+                android:text="@string/status"/>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-			
-            <TextView
-				android:layout_weight="1"               
-				android:id="@+id/victoria"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:layout_weight="1"
+                android:id="@+id/victoria"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
@@ -296,21 +290,21 @@
                 android:textColor="@color/status"
                 android:background="@color/victoria"/>
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/victoria_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
-        </LinearLayout>
+                android:text="@string/status"/>
+    </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/waterloo"
                 android:layout_width="0dp"
@@ -318,18 +312,16 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/waterloo"
                 android:textColor="@color/piccadily"
-                android:background="@color/waterloo" />
+                android:background="@color/waterloo"/>
 
-            <TextView
+        <TextView
                 android:layout_weight="1"
                 android:id="@+id/water_stat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/status" />
+                android:text="@string/status"/>
 
-        </LinearLayout>
-             
     </LinearLayout>
-    
-</RelativeLayout>
+
+</LinearLayout>

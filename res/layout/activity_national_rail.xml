@@ -1,46 +1,39 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-    
-    <LinearLayout
-        android:id="@+id/linearlayout1"
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/linearlayout1"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
-        <TextView
+    <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/from" />
+            android:text="@string/from"/>
 
-        <Spinner
+    <Spinner
             android:id="@+id/from_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <TextView
+    <TextView
             android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/to" />
+            android:text="@string/to"/>
 
-        <Spinner
+    <Spinner
             android:id="@+id/to_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <Button
+    <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/get_train" />
-        
-     </LinearLayout>
+            android:text="@string/get_train"/>
 
-  
-
-</RelativeLayout>
+</LinearLayout>
