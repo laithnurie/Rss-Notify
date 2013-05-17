@@ -1,20 +1,7 @@
 package com.laithnurie.baka;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import android.telephony.SmsManager;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -44,8 +31,9 @@ public class DashboardActivity extends Activity {
 		findViewById(R.id.mangaSection).setOnClickListener(dBClickListener);
 		findViewById(R.id.travel).setOnClickListener(dBClickListener);
 
-		LocationProvider lp = new LocationProvider();
-		lp.getNetworkLocation(currentActivity);
+// 		LocationProvider lp = new LocationProvider();
+//      p.getNetworkLocation(currentActivity);
+//		//sendSMS();
 
 
 	}
@@ -76,6 +64,4 @@ public class DashboardActivity extends Activity {
 			}
 		}
 	}
-
-
 }

@@ -17,6 +17,4 @@ public class RssApp extends Application {
 	public static void setCurrentActivity(Activity currentActivity) {
 		RssApp.currentActivity = currentActivity;
 	}
-
-
 }
