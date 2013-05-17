@@ -45,7 +45,7 @@ public class DashboardActivity extends Activity {
 		findViewById(R.id.travel).setOnClickListener(dBClickListener);
 
 		LocationProvider lp = new LocationProvider();
-		lp.getGPSLocation(currentActivity);
+		lp.getNetworkLocation(currentActivity);
 
 
 	}
