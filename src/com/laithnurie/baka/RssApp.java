@@ -32,6 +32,4 @@ public class RssApp extends Application {
 	public static void clearWeatherJson() {
 		appWeatherJson = new JSONArray();
 	}
-
-
 }

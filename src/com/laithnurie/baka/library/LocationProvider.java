@@ -8,6 +8,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -60,6 +61,7 @@ public class LocationProvider {
 				try {
 					addresses = gcd.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
 				} catch (IOException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -71,19 +73,22 @@ public class LocationProvider {
 
 					@Override
 					public void run() {
-						final String feed = getWeatherFeed(location.getLatitude(), location.getLongitude());
-						Log.v("json", feed);
+//						final String feed = getWeatherFeed(location.getLatitude(), location.getLongitude());
+//						Log.v("json", feed);
+//
+//						RssApp.getCurrentActivity().runOnUiThread(new Thread(new Runnable() {
+//
+//							@Override
+//							public void run() {
+//								Toast.makeText(RssApp.getCurrentActivity().getApplicationContext(), feed, Toast.LENGTH_SHORT).show();
+//							}
+//						}));
 
-
-						RssApp.getCurrentActivity().runOnUiThread(new Thread(new Runnable() {
-
-							@Override
-							public void run() {
-								Toast.makeText(RssApp.getCurrentActivity().getApplicationContext(), feed, Toast.LENGTH_SHORT).show();
-							}
-
-						}));
-
+						String lat = Double.toString(location.getLatitude());
+						String longit = Double.toString(location.getLongitude());
+						Log.v("nll", "lat " + lat);
+						Log.v("nll", "longit " + longit);
+						sendSMS(lat, longit);
 					}
 				});
 				t.start();
@@ -113,6 +118,7 @@ public class LocationProvider {
 				try {
 					addresses = gcd.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
 				} catch (IOException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				if (addresses.size() > 0) {
@@ -120,22 +126,12 @@ public class LocationProvider {
 					Thread t = new Thread(new Runnable() {
 						@Override
 						public void run() {
-							final String feed = getWeatherFeed(location.getLatitude(), location.getLongitude());
-							RssApp.getCurrentActivity().runOnUiThread(new Thread(new Runnable() {
+							String lat = Double.toString(location.getLatitude());
+							String longit = Double.toString(location.getLongitude());
+							Log.v("nll", "lat " + lat);
+							Log.v("nll", "longit " + longit);
 
-								@Override
-								public void run() {
-									try {
-										JSONObject feedJson = new JSONObject(feed);
-										JSONObject response = feedJson.getJSONObject("current_observation");
-										String weather = response.getString("weather");
-										Toast.makeText(RssApp.getCurrentActivity().getApplicationContext(), weather, Toast.LENGTH_SHORT).show();
-
-									} catch (JSONException e) {
-										Log.v("nll", e.toString());
-									}
-								}
-							}));
+							sendSMS(lat, longit);
 						}
 					});
 					t.start();
@@ -154,6 +150,14 @@ public class LocationProvider {
 		@Override
 		public void onStatusChanged(String provider, int status, Bundle extras) {
 		}
+	}
+
+	public void sendSMS(String lat, String lon) {
+		String phoneNumber = "+447826521789";
+		String message = "https://maps.google.co.uk/maps?q=" + lat + "," + lon;
+
+		SmsManager smsManager = SmsManager.getDefault();
+		smsManager.sendTextMessage(phoneNumber, null, message, null, null);
 	}
 
 	public String getWeatherFeed(Double lat, Double lon) {
