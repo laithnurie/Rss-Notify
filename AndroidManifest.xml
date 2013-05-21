@@ -78,6 +78,9 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.laithnurie.baka.NationalRail"/>
         </activity>
+        <activity android:name=".RssPreferences"/>
+        <activity android:name=".ShowSettingsActivity"/>
+
 
         <receiver android:name=".library.SmsListener">
             <intent-filter>

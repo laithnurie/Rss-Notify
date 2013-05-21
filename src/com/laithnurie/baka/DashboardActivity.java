@@ -1,18 +1,12 @@
 package com.laithnurie.baka;
 
-import android.telephony.SmsManager;
-
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Toast;
-
-import com.laithnurie.baka.library.LocationProvider;
 
 public class DashboardActivity extends Activity {
 	Activity currentActivity;
@@ -30,18 +24,21 @@ public class DashboardActivity extends Activity {
 		DashboardClickListener dBClickListener = new DashboardClickListener();
 		findViewById(R.id.mangaSection).setOnClickListener(dBClickListener);
 		findViewById(R.id.travel).setOnClickListener(dBClickListener);
-
-// 		LocationProvider lp = new LocationProvider();
-//      p.getNetworkLocation(currentActivity);
-//		//sendSMS();
-
-
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_dashboard, menu);
 		return true;
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.menu_settings:
+				startActivity(new Intent(this, RssPreferences.class));
+				return true;
+		}
+		return false;
 	}
 
 	private class DashboardClickListener implements OnClickListener {
