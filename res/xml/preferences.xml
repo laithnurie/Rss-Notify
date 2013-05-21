@@ -30,12 +30,22 @@
             android:key="second_category">
 
         <EditTextPreference
-                android:key="welcome_message"
-                android:title="Welcome Message"
-                android:summary="Define the Welcome message to be shown"
-                android:dialogTitle="Welcome Message"
-                android:dialogMessage="Provide a message"
-                android:defaultValue="Default welcome message" />
+                android:key="location_receiver_phone_no"
+                android:title="Tracker Phone Number"
+                android:summary="Define the Tracker Phone Number"
+                android:dialogTitle="Tracker Phone Number"
+                android:dialogMessage="Provide a phone number"
+                android:phoneNumber="true"
+                />
+
+        <EditTextPreference
+                android:key="track_text"
+                android:title="Track Text"
+                android:summary="Define the text message to start tracking"
+                android:dialogTitle="Track Text"
+                android:dialogMessage="Provide The text"
+                android:defaultValue="Track you"
+                />
 
     </PreferenceCategory>
 

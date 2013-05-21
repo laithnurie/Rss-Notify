@@ -25,7 +25,7 @@ public class ShowSettingsActivity extends Activity {
 
 		builder.append("\n" + sharedPrefs.getBoolean("perform_updates", false));
 		builder.append("\n" + sharedPrefs.getString("updates_interval", "-1"));
-		builder.append("\n" + sharedPrefs.getString("welcome_message", "NULL"));
+		builder.append("\n" + sharedPrefs.getString("location_receiver_phone_no", "NULL"));
 
 		TextView settingsTextView = (TextView) findViewById(R.id.settings_text_view);
 		settingsTextView.setText(builder.toString());

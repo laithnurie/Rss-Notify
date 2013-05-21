@@ -2,12 +2,14 @@ package com.laithnurie.baka.library;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.Toast;
@@ -73,16 +75,6 @@ public class LocationProvider {
 
 					@Override
 					public void run() {
-//						final String feed = getWeatherFeed(location.getLatitude(), location.getLongitude());
-//						Log.v("json", feed);
-//
-//						RssApp.getCurrentActivity().runOnUiThread(new Thread(new Runnable() {
-//
-//							@Override
-//							public void run() {
-//								Toast.makeText(RssApp.getCurrentActivity().getApplicationContext(), feed, Toast.LENGTH_SHORT).show();
-//							}
-//						}));
 
 						String lat = Double.toString(location.getLatitude());
 						String longit = Double.toString(location.getLongitude());
@@ -153,11 +145,16 @@ public class LocationProvider {
 	}
 
 	public void sendSMS(String lat, String lon) {
-		String phoneNumber = "+447826521789";
+
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(RssApp.getCurrentActivity());
+
+
+		String phoneNo = sharedPrefs.getString("location_receiver_phone_no", "NULL");
+
 		String message = "https://maps.google.co.uk/maps?q=" + lat + "," + lon;
 
 		SmsManager smsManager = SmsManager.getDefault();
-		smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+		smsManager.sendTextMessage(phoneNo, null, message, null, null);
 	}
 
 	public String getWeatherFeed(Double lat, Double lon) {

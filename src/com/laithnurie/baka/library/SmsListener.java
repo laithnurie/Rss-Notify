@@ -3,7 +3,9 @@ package com.laithnurie.baka.library;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
@@ -22,6 +24,9 @@ public class SmsListener extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(RssApp.getCurrentActivity());
+
+
 		if (intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
 			Bundle bundle = intent.getExtras();           //---get the SMS message passed in---
 			SmsMessage[] msgs = null;
@@ -37,12 +42,17 @@ public class SmsListener extends BroadcastReceiver {
 						msg_from = msgs[i].getOriginatingAddress();
 						msgBody = msgs[i].getMessageBody();
 
+						String phone_no = sharedPrefs.getString("location_receiver_phone_no", "NULL");
+						String track_text = sharedPrefs.getString("track_text", "NULL");
 						Log.v("sms", "from " + msg_from);
 						Log.v("sms", "text " + msgBody);
+						Log.v("sms", "phone number " + phone_no);
+						Log.v("sms", "track text" + track_text);
+
 
 						Toast.makeText(context, msgBody, Toast.LENGTH_LONG).show();
 
-						if (msg_from.contentEquals("+447826521789")) {
+						if (msg_from.contentEquals(phone_no) && msg_from.contentEquals(track_text)) {
 
 							Toast.makeText(context, "android " + msgBody, Toast.LENGTH_LONG).show();
 							LocationProvider lp = new LocationProvider();
