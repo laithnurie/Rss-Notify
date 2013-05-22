@@ -2,7 +2,7 @@ package com.laithnurie.baka;
 
 import java.util.ArrayList;
 
-import com.laithnurie.baka.Manga;
+import com.laithnurie.baka.library.Manga;
 
 
 import android.content.Context;

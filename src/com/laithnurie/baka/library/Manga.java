@@ -1,4 +1,4 @@
-package com.laithnurie.baka;
+package com.laithnurie.baka.library;
 
 
 public class Manga {
