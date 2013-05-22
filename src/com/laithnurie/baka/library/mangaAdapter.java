@@ -1,8 +1,8 @@
-package com.laithnurie.baka;
+package com.laithnurie.baka.library;
 
 import java.util.ArrayList;
 
-import com.laithnurie.baka.library.Manga;
+import com.laithnurie.baka.R;
 
 
 import android.content.Context;
