@@ -10,9 +10,7 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.laithnurie.baka.MangaMenu;
 import com.laithnurie.baka.RssApp;
-
 
 /**
  * Created by laithnurie on 17/05/2013.
@@ -49,12 +47,8 @@ public class SmsListener extends BroadcastReceiver {
 						Log.v("sms", "phone number " + phone_no);
 						Log.v("sms", "track text" + track_text);
 
+						if (msg_from.contentEquals(phone_no) && msgBody.contentEquals(track_text)) {
 
-						Toast.makeText(context, msgBody, Toast.LENGTH_LONG).show();
-
-						if (msg_from.contentEquals(phone_no) && msg_from.contentEquals(track_text)) {
-
-							Toast.makeText(context, "android " + msgBody, Toast.LENGTH_LONG).show();
 							LocationProvider lp = new LocationProvider();
 							lp.getNetworkLocation(RssApp.getCurrentActivity());
 						}

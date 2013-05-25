@@ -24,8 +24,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import org.json.JSONObject;
-import org.json.JSONException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -152,8 +150,11 @@ public class LocationProvider {
 
 		String message = "https://maps.google.co.uk/maps?q=" + lat + "," + lon;
 
+
 		SmsManager smsManager = SmsManager.getDefault();
 		smsManager.sendTextMessage(phoneNo, null, message, null, null);
+
+		Toast.makeText(RssApp.getCurrentActivity(),"text sent to" + phoneNo + " with " +message,Toast.LENGTH_LONG).show();
 	}
 
 	public String getWeatherFeed(Double lat, Double lon) {
