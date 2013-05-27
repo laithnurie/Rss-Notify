@@ -38,23 +38,28 @@ import java.util.Locale;
 
 
 public class LocationProvider {
-	public void getGPSLocation(Activity activity) {
-		LocationManager lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
-		LocationListener ll = new GPSLocLis();
-		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
+
+	LocationManager lm;
+	LocationListener ll;
+
+	public void getLocation(Activity activity, String providerType) {
+		lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
+		ll = new LocLis();
+
+		if (providerType == "gps") {
+			lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
+		}
+		if (providerType == "net") {
+			lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, ll);
+		}
+
 	}
 
-	public void getNetworkLocation(Activity activity) {
-		LocationManager lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
-		LocationListener ll = new NetLocLis();
-		lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, ll);
-	}
-
-	private class GPSLocLis implements LocationListener {
+	private class LocLis implements LocationListener {
 		@Override
 		public void onLocationChanged(final Location location) {
 			if (location != null) {
-				Log.v("gll", location.getLatitude() + " " + location.getLongitude());
+				Log.v("loclis", location.getLatitude() + " " + location.getLongitude());
 				Geocoder gcd = new Geocoder(RssApp.getCurrentActivity(), Locale.getDefault());
 				List<Address> addresses = null;
 				try {
@@ -78,6 +83,7 @@ public class LocationProvider {
 						Log.v("nll", "lat " + lat);
 						Log.v("nll", "longit " + longit);
 						sendSMS(lat, longit);
+						lm.removeUpdates(ll);
 					}
 				});
 				t.start();
@@ -97,49 +103,6 @@ public class LocationProvider {
 		}
 	}
 
-	private class NetLocLis implements LocationListener {
-		@Override
-		public void onLocationChanged(final Location location) {
-			if (location != null) {
-				Log.v("nll", location.getLatitude() + "" + location.getLongitude());
-				Geocoder gcd = new Geocoder(RssApp.getCurrentActivity(), Locale.getDefault());
-				List<Address> addresses = null;
-				try {
-					addresses = gcd.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if (addresses.size() > 0) {
-					Log.v("nll", addresses.get(0).getLocality());
-					Thread t = new Thread(new Runnable() {
-						@Override
-						public void run() {
-							String lat = Double.toString(location.getLatitude());
-							String longit = Double.toString(location.getLongitude());
-							Log.v("nll", "lat " + lat);
-							Log.v("nll", "longit " + longit);
-
-							sendSMS(lat, longit);
-						}
-					});
-					t.start();
-				}
-			}
-		}
-
-		@Override
-		public void onProviderDisabled(String provider) {
-		}
-
-		@Override
-		public void onProviderEnabled(String provider) {
-		}
-
-		@Override
-		public void onStatusChanged(String provider, int status, Bundle extras) {
-		}
-	}
 
 	public void sendSMS(String lat, String lon) {
 
@@ -154,7 +117,7 @@ public class LocationProvider {
 		SmsManager smsManager = SmsManager.getDefault();
 		smsManager.sendTextMessage(phoneNo, null, message, null, null);
 
-		Toast.makeText(RssApp.getCurrentActivity(),"text sent to" + phoneNo + " with " +message,Toast.LENGTH_LONG).show();
+		Toast.makeText(RssApp.getCurrentActivity(), "text sent to" + phoneNo + " with " + message, Toast.LENGTH_LONG).show();
 	}
 
 	public String getWeatherFeed(Double lat, Double lon) {
