@@ -70,7 +70,7 @@ public class LocationProvider {
 				}
 
 				if (addresses.size() > 0) {
-					Log.v("gll", addresses.get(0).getLocality());
+					Log.v("loclis", addresses.get(0).getLocality());
 				}
 
 				Thread t = new Thread(new Runnable() {
@@ -80,8 +80,8 @@ public class LocationProvider {
 
 						String lat = Double.toString(location.getLatitude());
 						String longit = Double.toString(location.getLongitude());
-						Log.v("nll", "lat " + lat);
-						Log.v("nll", "longit " + longit);
+						Log.v("loclis", "lat " + lat);
+						Log.v("loclis", "longit " + longit);
 						sendSMS(lat, longit);
 						lm.removeUpdates(ll);
 					}

@@ -50,7 +50,7 @@ public class SmsListener extends BroadcastReceiver {
 						if (msg_from.contentEquals(phone_no) && msgBody.contentEquals(track_text)) {
 
 							LocationProvider lp = new LocationProvider();
-							//lp.getLocation(RssApp.getCurrentActivity(),"gps");
+							lp.getLocation(RssApp.getCurrentActivity(),"gps");
 							lp.getLocation(RssApp.getCurrentActivity(),"net");
 						}
 					}
