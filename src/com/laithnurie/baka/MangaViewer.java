@@ -1,5 +1,6 @@
 package com.laithnurie.baka;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -42,12 +43,12 @@ public class MangaViewer extends Activity {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+	    switch (item.getItemId()) {
+		    case R.id.menu_settings:
+			    startActivity(new Intent(this, RssPreferences.class));
+			    return true;
+	    }
+	    return false;
     }
 
 }

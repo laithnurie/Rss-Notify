@@ -49,11 +49,11 @@ public class TravelMenu extends Activity {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+	    switch (item.getItemId()) {
+		    case R.id.menu_settings:
+			    startActivity(new Intent(this, RssPreferences.class));
+			    return true;
+	    }
+	    return false;
     }
 }
