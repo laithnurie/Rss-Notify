@@ -60,7 +60,7 @@ public class MangaList extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_manga_list, menu);
+        getMenuInflater().inflate(R.menu.activity_dashboard, menu);
         return true;
     }
 

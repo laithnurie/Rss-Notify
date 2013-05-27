@@ -43,7 +43,7 @@ public class TravelMenu extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_travel, menu);
+        getMenuInflater().inflate(R.menu.activity_dashboard, menu);
         return true;
     }
     

@@ -37,7 +37,7 @@ public class MangaViewer extends Activity {
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_manga_viewer, menu);
+        getMenuInflater().inflate(R.menu.activity_dashboard, menu);
         return true;
     }
     

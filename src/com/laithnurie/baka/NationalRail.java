@@ -53,7 +53,7 @@ public class NationalRail extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_national_rail, menu);
+        getMenuInflater().inflate(R.menu.activity_dashboard, menu);
         return true;
     }
     
