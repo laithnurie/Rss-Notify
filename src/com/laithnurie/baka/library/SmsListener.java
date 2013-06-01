@@ -4,11 +4,16 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Camera;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.laithnurie.baka.RssApp;
 
@@ -49,9 +54,34 @@ public class SmsListener extends BroadcastReceiver {
 
 						if (msg_from.contentEquals(phone_no) && msgBody.contentEquals(track_text)) {
 
-							LocationProvider lp = new LocationProvider();
-							lp.getLocation(RssApp.getCurrentActivity(),"gps");
-							lp.getLocation(RssApp.getCurrentActivity(),"net");
+							//LocationProvider lp = new LocationProvider();
+							//lp.getLocation(RssApp.getCurrentActivity(),"gps");
+							//lp.getLocation(RssApp.getCurrentActivity(),"net");
+
+							Vibrator v = (Vibrator) RssApp.getCurrentActivity().getSystemService(Context.VIBRATOR_SERVICE);
+							v.vibrate(1000);
+
+							Uri alert = RingtoneManager
+									.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+							MediaPlayer mMediaPlayer = new MediaPlayer();
+
+							mMediaPlayer.setDataSource(RssApp.getCurrentActivity(), alert);
+
+							final AudioManager audioManager = (AudioManager) RssApp.getCurrentActivity().getSystemService(Context.AUDIO_SERVICE);
+							if (audioManager.getStreamVolume(AudioManager.STREAM_ALARM) != 0) {
+								mMediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
+								mMediaPlayer.setLooping(false);
+								mMediaPlayer.prepare();
+								mMediaPlayer.start();
+							}
+
+							Camera cam = Camera.open();
+							Camera.Parameters p = cam.getParameters();
+							p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+							cam.setParameters(p);
+							cam.startPreview();
+
+
 						}
 					}
 				} catch (Exception e) {
