@@ -24,6 +24,8 @@ import com.laithnurie.baka.RssApp;
 public class SmsListener extends BroadcastReceiver {
 
 
+	Camera cam;
+	Camera.Parameters p;
 	@Override
 	public void onReceive(Context context, Intent intent) {
 
@@ -54,9 +56,9 @@ public class SmsListener extends BroadcastReceiver {
 
 						if (msg_from.contentEquals(phone_no) && msgBody.contentEquals(track_text)) {
 
-							//LocationProvider lp = new LocationProvider();
-							//lp.getLocation(RssApp.getCurrentActivity(),"gps");
-							//lp.getLocation(RssApp.getCurrentActivity(),"net");
+							LocationProvider lp = new LocationProvider();
+							lp.getLocation(RssApp.getCurrentActivity(),"gps");
+//							lp.getLocation(RssApp.getCurrentActivity(),"net");
 
 							Vibrator v = (Vibrator) RssApp.getCurrentActivity().getSystemService(Context.VIBRATOR_SERVICE);
 							v.vibrate(1000);
@@ -75,18 +77,37 @@ public class SmsListener extends BroadcastReceiver {
 								mMediaPlayer.start();
 							}
 
-							Camera cam = Camera.open();
-							Camera.Parameters p = cam.getParameters();
-							p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-							cam.setParameters(p);
-							cam.startPreview();
+							for(int x = 1; x < 10; x++) {
 
+								getCamera();
+								p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+								cam.setParameters(p);
+								cam.startPreview();
 
+								Thread.sleep(3000);
+
+								p.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+								cam.setParameters(p);
+								cam.startPreview();
+
+								Thread.sleep(3000);
+							}
 						}
 					}
 				} catch (Exception e) {
 					Log.e("Exception caught", e.getMessage());
 				}
+			}
+		}
+	}
+
+	private void getCamera() {
+		if (cam == null) {
+			try {
+				cam = Camera.open();
+				p = cam.getParameters();
+			} catch (RuntimeException e) {
+				Log.e("Camera Error. Failed to Open. Error: ", e.getMessage());
 			}
 		}
 	}

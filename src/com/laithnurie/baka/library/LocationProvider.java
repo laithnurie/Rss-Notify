@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Address;
+import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
@@ -44,15 +45,29 @@ public class LocationProvider {
 
 	public void getLocation(Activity activity, String providerType) {
 		lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
-		ll = new LocLis();
 
-		if (providerType == "gps") {
-			lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
-		}
-		if (providerType == "net") {
-			lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, ll);
+		Criteria crit = new Criteria();
+		crit.setAccuracy(Criteria.ACCURACY_FINE);
+		String provider = lm.getBestProvider(crit, false);
+		Location loc = lm.getLastKnownLocation(provider);
+
+		try {
+			sendSMS(Double.toString(loc.getLatitude()),Double.toString(loc.getLongitude()));
+			Log.v("loclis", "lat " +Double.toString(loc.getLatitude()));
+			Log.v("loclis", "lon " +Double.toString(loc.getLongitude()));
+
+		} catch (NullPointerException e) {
+			Log.e("loclis", e.getMessage());
 		}
 
+//		ll = new LocLis();
+//
+//		if (providerType == "gps") {
+//			lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
+//		}
+//		if (providerType == "net") {
+//			lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, ll);
+//		}
 	}
 
 	private class LocLis implements LocationListener {
