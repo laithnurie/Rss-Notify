@@ -23,13 +23,6 @@
                 android:drawableTop="@drawable/travel_button_switch"
                 android:text="@string/travel"/>
 
-        <Button
-                android:id="@+id/travelSection"
-                style="@style/DashboardButton"
-                android:drawableTop="@drawable/travel_button_switch"
-                android:text="@string/travel"/>
-
-
     </com.laithnurie.baka.library.DashboardLayout>
 
 </LinearLayout>
