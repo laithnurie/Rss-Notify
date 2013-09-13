@@ -24,7 +24,7 @@ public class DashboardActivity extends Activity {
 		//attach event handler to dash buttons
 		DashboardClickListener dBClickListener = new DashboardClickListener();
 		findViewById(R.id.mangaSection).setOnClickListener(dBClickListener);
-		findViewById(R.id.travel).setOnClickListener(dBClickListener);
+		findViewById(R.id.travelSection).setOnClickListener(dBClickListener);
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class DashboardActivity extends Activity {
 				case R.id.mangaSection:
 					i = new Intent(DashboardActivity.this, MangaMenu.class);
 					break;
-				case R.id.travel:
+				case R.id.travelSection:
 					i = new Intent(DashboardActivity.this, TravelMenu.class);
 					break;
 				default:
