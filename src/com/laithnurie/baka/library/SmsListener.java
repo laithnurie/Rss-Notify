@@ -38,7 +38,7 @@ public class SmsListener extends BroadcastReceiver {
 			String msg_from;
 			String msgBody;
 			if (bundle != null) {
-				//---retrieve the SMS message received---
+				//---retrieve the SMS message received ---
 				try {
 					Object[] pdus = (Object[]) bundle.get("pdus");
 					msgs = new SmsMessage[pdus.length];
