@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="bakerloo">Bakerloo</string>
+    <color name="bakerloo">#AE6118</color>
+    
+    <string name="central">Central</string>
+    <color name="central">#E41F1F</color>
+    
+    <string name="circle">Circle</string>
+    <color name="circle">#F8D42D</color>
+    
+    <string name="district">District</string>
+    <color name="district">#007229</color>
+    
+    <string name="dlr">DLR</string>
+    <color name="dlr">#00BBB4</color>
+    
+    <string name="hammersmith">H\'smith &amp; city</string>
+    <color name="hammersmith">#E899A8</color>
+    
+    <string name="jubilee">Jubilee</string>
+    <color name="jubilee">#686e72</color>
+    
+    <string name="metropolitan">Metropolitan</string>
+    <color name="metropolitan">#893267</color>
+    
+    <string name="northern">Northern</string>
+    <color name="northern">#000000</color>
+    
+    <string name="overground">Overground</string>
+    <color name="overground">#F86C00</color>
+    
+    <string name="piccadily">Piccadily</string>
+    <color name="piccadily">#0450A1</color>
+    
+    <string name="victoria">Victoria</string>
+    <color name="victoria">#009FE0</color>
+    
+    <string name="waterloo">Waterloo &amp; City</string>
+    <color name="waterloo">#70C3CE</color>
+    
+    <string name="status">waiting status..</string>
+   	<color name="status">#F3F3F3</color>
+
+</resources>

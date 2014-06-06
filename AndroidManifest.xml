@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.laithnurie.baka"
+          android:versionCode="1"
+          android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="14"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+
+
+    <application
+            android:icon="@drawable/icon"
+            android:name="RssApp"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo">
+        <activity
+                android:name="DashboardActivity"
+                android:label="@string/title_activity_dashboard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".MangaMenu"
+                android:label="@string/title_activity_manga_list">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.DashboardActivity"/>
+        </activity>
+        <activity
+                android:name=".MangaList"
+                android:label="@string/title_activity_manga_list">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.MangaMenu"/>
+        </activity>
+        <activity
+                android:name=".MangaViewer"
+                android:label="@string/title_activity_manga_viewer">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.MangaList"/>
+        </activity>
+        <activity
+                android:name=".TravelMenu"
+                android:label="@string/title_activity_travel">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.DashboardActivity"/>
+        </activity>
+        <activity
+                android:name=".TubeActivity"
+                android:label="@string/title_activity_tube">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.TravelMenu"/>
+        </activity>
+        <activity
+                android:name=".NationalRail"
+                android:label="@string/title_activity_national_rail">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.TravelMenu"/>
+        </activity>
+        <activity
+                android:name=".NationalTrains"
+                android:label="@string/title_activity_national_trains">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.laithnurie.baka.NationalRail"/>
+        </activity>
+        <activity android:name=".RssPreferences"/>
+        <activity android:name=".ShowSettingsActivity"/>
+
+
+        <receiver android:name=".library.SmsListener">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+`
+    </application>
+
+</manifest>
