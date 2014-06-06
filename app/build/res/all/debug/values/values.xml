@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string-array name="station_name">
+        <item>BFD</item>
+        <item>CBW</item>
+        <item>STP</item>
+        <item>SYL</item>
+        <item>VXH</item>
+        <item>BMH</item>
+        <item>WAT</item>
+        <item>CLP</item>
+    </string-array>
+    <string-array name="updateInterval">
+        <item>Every 1 second</item>
+        <item>Every 5 seconds</item>
+        <item>Every 30 seconds</item>
+        <item>Every 1 minute</item>
+        <item>Every 5 minutes</item>
+    </string-array>
+    <string-array name="updateIntervalValues">
+        <item>1000</item>
+        <item>5000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>300000</item>
+    </string-array>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/ug_lines.xml -->
+    <eat-comment />
+
+    <color name="bakerloo">#AE6118</color>
+    <color name="central">#E41F1F</color>
+    <color name="circle">#F8D42D</color>
+    <color name="district">#007229</color>
+    <color name="dlr">#00BBB4</color>
+    <color name="hammersmith">#E899A8</color>
+    <color name="jubilee">#686e72</color>
+    <color name="metropolitan">#893267</color>
+    <color name="northern">#000000</color>
+    <color name="overground">#F86C00</color>
+    <color name="piccadily">#0450A1</color>
+    <color name="status">#F3F3F3</color>
+    <color name="victoria">#009FE0</color>
+    <color name="waterloo">#70C3CE</color>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="app_name">Daily App</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/ug_lines.xml -->
+    <eat-comment />
+
+    <string name="bakerloo">Bakerloo</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/manga.xml -->
+    <eat-comment />
+
+    <string name="bleach">bleach</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/ug_lines.xml -->
+    <eat-comment />
+
+    <string name="central">Central</string>
+    <string name="circle">Circle</string>
+    <string name="district">District</string>
+    <string name="dlr">DLR</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="from">From</string>
+    <string name="get_train">Get Train</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/ug_lines.xml -->
+    <eat-comment />
+
+    <string name="hammersmith">H\'smith &amp; city</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="hello_world">Hello world!</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/ug_lines.xml -->
+    <eat-comment />
+
+    <string name="jubilee">Jubilee</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="manga">Manga</string>
+    <string name="menu_settings">Settings</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/ug_lines.xml -->
+    <eat-comment />
+
+    <string name="metropolitan">Metropolitan</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/manga.xml -->
+    <eat-comment />
+
+    <string name="naruto">naruto</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="national">National</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/ug_lines.xml -->
+    <eat-comment />
+
+    <string name="northern">Northern</string>
+    <string name="overground">Overground</string>
+    <string name="piccadily">Piccadily</string>
+    <string name="status">waiting status..</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_manga_list">MangaList</string>
+    <string name="title_activity_manga_viewer">MangaViewer</string>
+    <string name="title_activity_national_rail">NationalRail</string>
+    <string name="title_activity_national_trains">NationalTrains</string>
+    <string name="title_activity_travel">Travel</string>
+    <string name="title_activity_tube">TubeActivity</string>
+    <string name="title_activity_weather_json">WeatherJson</string>
+    <string name="to">To</string>
+    <string name="travel">Travel</string>
+    <string name="tube">Tube</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/ug_lines.xml -->
+    <eat-comment />
+
+    <string name="victoria">Victoria</string>
+    <string name="waterloo">Waterloo &amp; City</string>
+    <!-- From: file:/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/style.xml -->
+    <eat-comment />
+
+    <style name="DashboardButton">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff0000</item>
+        <item name="android:background">@null</item>
+    </style>
+
+</resources>

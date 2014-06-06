@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res" >
+            <file
+                name="manga_button_switch"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable/manga_button_switch.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="travel_button_switch"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable/travel_button_switch.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="bleach"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/bleach.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_action_search"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/ic_action_search.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="icon"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/icon.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="manga_btn"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/manga_btn.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="manga_btn_selected"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/manga_btn_selected.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="naruto"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/naruto.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="national"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/national.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="onepiece"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/onepiece.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="travel"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/travel.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="travel_selected"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/travel_selected.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="tube"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-hdpi/tube.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="icon"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-ldpi/icon.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="ic_action_search"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-mdpi/ic_action_search.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="icon"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-mdpi/icon.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_action_search"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/drawable-xhdpi/ic_action_search.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="activity_dashboard"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/activity_dashboard.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_manga_list"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/activity_manga_list.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_manga_viewer"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/activity_manga_viewer.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_national_rail"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/activity_national_rail.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_national_trains"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/activity_national_trains.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_travel"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/activity_travel.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_tube"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/activity_tube.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_weather_json"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/activity_weather_json.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="custom_row_view"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/custom_row_view.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="main"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="show_settings_layout"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/layout/show_settings_layout.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_dashboard"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/menu/activity_dashboard.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/manga.xml"
+                qualifiers="" >
+                <string name="naruto" >naruto
+                </string>
+                <string name="bleach" >bleach
+                </string>
+            </file>
+            <file
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="from" >From
+                </string>
+                <string name="title_activity_manga_viewer" >MangaViewer
+                </string>
+                <string name="title_activity_weather_json" >WeatherJson
+                </string>
+                <string name="title_activity_main" >MainActivity
+                </string>
+
+                <string-array name="updateInterval" >
+                    <item>
+Every 1 second
+                    </item>
+                    <item>
+Every 5 seconds
+                    </item>
+                    <item>
+Every 30 seconds
+                    </item>
+                    <item>
+Every 1 minute
+                    </item>
+                    <item>
+Every 5 minutes
+                    </item>
+                </string-array>
+
+                <string name="title_activity_travel" >Travel
+                </string>
+                <string name="title_activity_national_trains" >NationalTrains
+                </string>
+                <string name="title_activity_manga_list" >MangaList
+                </string>
+                <string name="to" >To
+                </string>
+                <string name="national" >National
+                </string>
+                <string name="title_activity_dashboard" >DashboardActivity
+                </string>
+                <string name="get_train" >Get Train
+                </string>
+                <string name="title_activity_tube" >TubeActivity
+                </string>
+                <string name="travel" >Travel
+                </string>
+                <string name="title_activity_national_rail" >NationalRail
+                </string>
+                <string name="app_name" >Daily App
+                </string>
+                <string name="hello_world" >Hello world!
+                </string>
+
+                <string-array name="updateIntervalValues" >
+                    <item>
+1000
+                    </item>
+                    <item>
+5000
+                    </item>
+                    <item>
+30000
+                    </item>
+                    <item>
+60000
+                    </item>
+                    <item>
+300000
+                    </item>
+                </string-array>
+                <string-array name="station_name" >
+                    <item>
+BFD
+                    </item>
+                    <item>
+CBW
+                    </item>
+                    <item>
+STP
+                    </item>
+                    <item>
+SYL
+                    </item>
+                    <item>
+VXH
+                    </item>
+                    <item>
+BMH
+                    </item>
+                    <item>
+WAT
+                    </item>
+                    <item>
+CLP
+                    </item>
+                </string-array>
+
+                <string name="tube" >Tube
+                </string>
+                <string name="menu_settings" >Settings
+                </string>
+                <string name="manga" >Manga
+                </string>
+            </file>
+            <file
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/style.xml"
+                qualifiers="" >
+
+                <style name="DashboardButton" >
+                    <item name="android:layout_gravity">
+center_vertical
+                    </item>
+                    <item name="android:layout_width">
+wrap_content
+                    </item>
+                    <item name="android:layout_height">
+wrap_content
+                    </item>
+                    <item name="android:gravity">
+center_horizontal
+                    </item>
+                    <item name="android:drawablePadding">
+2dp
+                    </item>
+                    <item name="android:textSize">
+14sp
+                    </item>
+                    <item name="android:textStyle">
+bold
+                    </item>
+                    <item name="android:textColor">
+#ff0000
+                    </item>
+                    <item name="android:background">
+@null
+                    </item>
+                </style>
+            </file>
+            <file
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/values/ug_lines.xml"
+                qualifiers="" >
+                <color name="hammersmith" >#E899A8
+                </color>
+                <color name="district" >#007229
+                </color>
+                <color name="northern" >#000000
+                </color>
+
+                <string name="piccadily" >Piccadily
+                </string>
+                <string name="jubilee" >Jubilee
+                </string>
+
+                <color name="central" >#E41F1F
+                </color>
+                <color name="overground" >#F86C00
+                </color>
+                <color name="bakerloo" >#AE6118
+                </color>
+
+                <string name="status" >waiting status..
+                </string>
+
+                <color name="status" >#F3F3F3
+                </color>
+
+                <string name="hammersmith" >H\'smith &amp; city
+                </string>
+                <string name="dlr" >DLR
+                </string>
+                <string name="bakerloo" >Bakerloo
+                </string>
+                <string name="victoria" >Victoria
+                </string>
+
+                <color name="metropolitan" >#893267
+                </color>
+                <color name="piccadily" >#0450A1
+                </color>
+
+                <string name="district" >District
+                </string>
+                <string name="northern" >Northern
+                </string>
+
+                <color name="dlr" >#00BBB4
+                </color>
+                <color name="circle" >#F8D42D
+                </color>
+
+                <string name="metropolitan" >Metropolitan
+                </string>
+                <string name="overground" >Overground
+                </string>
+
+                <color name="waterloo" >#70C3CE
+                </color>
+
+                <string name="waterloo" >Waterloo &amp; City
+                </string>
+
+                <color name="jubilee" >#686e72
+                </color>
+                <color name="victoria" >#009FE0
+                </color>
+
+                <string name="circle" >Circle
+                </string>
+                <string name="central" >Central
+                </string>
+            </file>
+            <file
+                name="preferences"
+                path="/Users/laithnurie/android-work/Rss-Notify/app/src/main/res/xml/preferences.xml"
+                qualifiers=""
+                type="xml" />
+        </source>
+        <source path="/Users/laithnurie/android-work/Rss-Notify/app/build/res/rs/debug" />
+        <source path="/Users/laithnurie/android-work/Rss-Notify/app/build/res/generated/debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/laithnurie/android-work/Rss-Notify/app/src/debug/res" />
+    </dataSet>
+
+</merger>

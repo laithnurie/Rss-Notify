@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Daily App</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_manga_list">MangaList</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_manga_viewer">MangaViewer</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="manga">Manga</string>
+    <string name="travel">Travel</string>
+    <string name="tube">Tube</string>
+    <string name="national">National</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_activity_tube">TubeActivity</string>
+    <string name="title_activity_travel">Travel</string>
+    <string name="title_activity_national_rail">NationalRail</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="get_train">Get Train</string>
+
+    <string-array name="station_name">
+        <item>BFD</item>
+        <item>CBW</item>
+        <item>STP</item>
+        <item>SYL</item>
+        <item>VXH</item>
+        <item>BMH</item>
+        <item>WAT</item>
+        <item>CLP</item>
+    </string-array>
+
+    <string name="title_activity_national_trains">NationalTrains</string>
+    <string name="title_activity_weather_json">WeatherJson</string>
+
+    <string-array name="updateInterval">
+        <item>Every 1 second</item>
+        <item>Every 5 seconds</item>
+        <item>Every 30 seconds</item>
+        <item>Every 1 minute</item>
+        <item>Every 5 minutes</item>
+    </string-array>
+
+    <string-array name="updateIntervalValues">
+        <item>1000</item>
+        <item>5000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>300000</item>
+    </string-array>
+
+</resources>
