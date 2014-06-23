@@ -47,10 +47,10 @@ public class NationalTrains extends Activity {
         dip = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float) 1, getResources().getDisplayMetrics());
 
         trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom=" + fromStation + "&liveTrainsTo=" + toStation + "&serviceId=";
-        new loadTubeJson().execute();
+        new loadTrainJson().execute();
     }
 
-    public class loadTubeJson extends AsyncTask<String, Integer, String> {
+    public class loadTrainJson extends AsyncTask<String, Integer, String> {
 
         ProgressDialog pd;
 

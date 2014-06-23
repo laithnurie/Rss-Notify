@@ -41,7 +41,7 @@ public class mangaAdapter extends BaseAdapter {
             holder.txtManga = (TextView) convertView.findViewById(R.id.manga);
             holder.txtChapter = (TextView) convertView.findViewById(R.id.chapter);
             holder.txtDesc = (TextView) convertView.findViewById(R.id.desc);
-            holder.txtDate = (TextView) convertView.findViewById(R.id.pubDate);  
+//            holder.txtDate = (TextView) convertView.findViewById(R.id.pubDate);
  
             convertView.setTag(holder);
         } 
@@ -52,7 +52,7 @@ public class mangaAdapter extends BaseAdapter {
         holder.txtManga.setText(mangaList.get(position).getManga());
         holder.txtChapter.setText(mangaList.get(position).getChapter());
         holder.txtDesc.setText(mangaList.get(position).getDesc());
-        holder.txtDate.setText(mangaList.get(position).getDate());
+//        holder.txtDate.setText(mangaList.get(position).getDate());
 
         return convertView;
     }
@@ -61,6 +61,6 @@ public class mangaAdapter extends BaseAdapter {
         TextView txtManga;
         TextView txtChapter;
         TextView txtDesc;
-        TextView txtDate;
+//        TextView txtDate;
     }
 }

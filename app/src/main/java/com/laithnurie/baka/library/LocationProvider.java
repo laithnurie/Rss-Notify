@@ -46,12 +46,16 @@ public class LocationProvider {
 	public void getLocation(Activity activity, String providerType) {
 		lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
 
-		Criteria crit = new Criteria();
-		crit.setAccuracy(Criteria.ACCURACY_FINE);
-		String provider = lm.getBestProvider(crit, false);
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+        criteria.setAltitudeRequired(false);
+        criteria.setBearingRequired(false);
+        criteria.setCostAllowed(true);
+        criteria.setPowerRequirement(Criteria.NO_REQUIREMENT);
+		String provider = lm.getBestProvider(criteria, false);
 		Location loc = lm.getLastKnownLocation(provider);
 
-		try {
+        try {
 			sendSMS(Double.toString(loc.getLatitude()),Double.toString(loc.getLongitude()));
 			Log.v("loclis", "lat " +Double.toString(loc.getLatitude()));
 			Log.v("loclis", "lon " +Double.toString(loc.getLongitude()));

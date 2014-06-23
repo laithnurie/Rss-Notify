@@ -18,6 +18,11 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+#android studio
+.gradle
+.idea
+*.iml
+build
 
 # annoying files
 .DS_Store
