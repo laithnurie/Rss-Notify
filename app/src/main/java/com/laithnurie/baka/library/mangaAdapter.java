@@ -1,16 +1,15 @@
 package com.laithnurie.baka.library;
 
-import java.util.ArrayList;
-
-import com.laithnurie.baka.R;
-
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.laithnurie.baka.R;
+
+import java.util.ArrayList;
 
 public class mangaAdapter extends BaseAdapter {
     private static ArrayList<Manga> mangaList;

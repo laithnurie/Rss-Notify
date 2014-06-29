@@ -1,10 +1,10 @@
 package com.laithnurie.baka;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 
 

@@ -26,7 +26,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,6 +39,7 @@ public class MangaList extends Activity {
     ListView lv;
     int noOfMangas;
     Context appContext;
+    String chapterParam;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,8 +60,10 @@ public class MangaList extends Activity {
                 Object o = lv.getItemAtPosition(position);
                 Manga fullObject = (Manga) o;
 
+                Log.e("mangalist", chapterParam);
+
                 Intent i = new Intent(getApplicationContext(), MangaViewer.class);
-                i.putExtra("mangaPage", fullObject.getManga());
+                i.putExtra("mangaPage", "http://www.laithlab.me/manga/" + chapterParam + "/" + fullObject.getChapter() + "/0");
                 startActivity(i);
             }
         });
@@ -86,7 +88,6 @@ public class MangaList extends Activity {
     public class loadMangaList extends AsyncTask<String, Integer, ArrayList<Manga>> {
 
         ProgressDialog pd;
-        String passedParam;
         Manga chapter;
 
         @Override
@@ -103,8 +104,8 @@ public class MangaList extends Activity {
         protected ArrayList<Manga> doInBackground(final String... params) {
             mangaList = new ArrayList<Manga>();
             mangaList.clear();
-            passedParam = params[0];
-            String url = "http://www.laithlab.me/manga/" + passedParam + "/chapters.json";
+            chapterParam = params[0];
+            String url = "http://www.laithlab.me/manga/" + chapterParam + "/chapters.json";
             StringBuilder builder = new StringBuilder();
             HttpClient client = new DefaultHttpClient();
             HttpGet httpGet = new HttpGet(url);

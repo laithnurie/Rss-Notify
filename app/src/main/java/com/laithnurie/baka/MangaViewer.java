@@ -1,13 +1,12 @@
 package com.laithnurie.baka;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.support.v4.app.NavUtils;
 
 public class MangaViewer extends Activity {
 	WebView webView;
