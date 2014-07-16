@@ -23,9 +23,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-/**
- * Created by nuriel on 16/07/2014.
- */
+
 public class MangaFetcher extends AsyncTask<String, Integer, ArrayList<Manga>> {
 
     ProgressDialog pd;
@@ -89,10 +87,9 @@ public class MangaFetcher extends AsyncTask<String, Integer, ArrayList<Manga>> {
             for (int i = 0; i < mangasJson.length(); i++) {
                 JSONArray manga = mangasJson.getJSONArray(i);
                 chapter = new Manga();
-                chapter.setChapter(manga.get(0).toString());
+                chapter.setChapterNo(manga.get(0).toString());
                 chapter.setDesc(manga.get(2).toString());
-
-                Log.v("Manga json object:- ", manga.toString());
+                chapter.setManga(chapterParam);
 
                 mangaList.add(chapter);
 

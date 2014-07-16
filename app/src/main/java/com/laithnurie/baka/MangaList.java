@@ -1,11 +1,11 @@
 package com.laithnurie.baka;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,20 +18,6 @@ import com.laithnurie.baka.library.Manga;
 import com.laithnurie.baka.library.MangaAdapter;
 import com.laithnurie.baka.library.MangaFetcher;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -53,10 +39,19 @@ public class MangaList extends Activity {
         ArrayList<Manga> result = null;
         try {
             result = new MangaFetcher(true, appContext).execute(feedURL).get();
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
+        }
+
+        if(result.size()>0){
+
+            SharedPreferences mangaData = PreferenceManager.getDefaultSharedPreferences(appContext);
+            SharedPreferences.Editor mangaEditor = mangaData.edit();
+            mangaEditor.putInt(feedURL + "lc", result.size());
+            mangaEditor.apply();
         }
 
         lv = (ListView) findViewById(R.id.srListView);
@@ -70,7 +65,7 @@ public class MangaList extends Activity {
                 Log.e("mangalist", feedURL);
 
                 Intent i = new Intent(getApplicationContext(), MangaViewer.class);
-                i.putExtra("mangaPage", "http://www.laithlab.me/manga/" + feedURL + "/" + fullObject.getChapter() + "/0");
+                i.putExtra("mangaPage", "http://www.laithlab.me/manga/" + feedURL + "/" + fullObject.getChapterNo() + "/0");
                 startActivity(i);
             }
         });

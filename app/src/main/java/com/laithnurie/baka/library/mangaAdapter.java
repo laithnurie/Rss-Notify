@@ -49,7 +49,7 @@ public class MangaAdapter extends BaseAdapter {
         }
  
         holder.txtManga.setText(mangaList.get(position).getManga());
-        holder.txtChapter.setText(mangaList.get(position).getChapter());
+        holder.txtChapter.setText(mangaList.get(position).getChapterNo());
         holder.txtDesc.setText(mangaList.get(position).getDesc());
 //        holder.txtDate.setText(mangaList.get(position).getDate());
 

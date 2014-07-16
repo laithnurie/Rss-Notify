@@ -5,7 +5,7 @@ public class Manga {
 
     private long id;
     private String manga;
-    private String chapter;
+    private String chapterNo;
     private String desc;
     private String pubDate;
 
@@ -25,12 +25,12 @@ public class Manga {
         this.manga = manga;
     }
 
-    public String getChapter() {
-        return chapter;
+    public String getChapterNo() {
+        return chapterNo;
     }
 
-    public void setChapter(String chapter) {
-        this.chapter = chapter;
+    public void setChapterNo(String chapterNo) {
+        this.chapterNo = chapterNo;
     }
 
     public String getDesc() {
