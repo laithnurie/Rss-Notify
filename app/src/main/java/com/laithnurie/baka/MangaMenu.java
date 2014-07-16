@@ -33,7 +33,7 @@ public class MangaMenu extends Activity {
                 	mangaIntentSwitcher("bleach");
                     break;
                 case R.id.onepieceBtn:
-                	mangaIntentSwitcher("one_piece");
+                	mangaIntentSwitcher("one-piece");
                     break;
                 default:
                     break;

@@ -11,11 +11,11 @@ import com.laithnurie.baka.R;
 
 import java.util.ArrayList;
 
-public class mangaAdapter extends BaseAdapter {
+public class MangaAdapter extends BaseAdapter {
     private static ArrayList<Manga> mangaList;
     private LayoutInflater mInflater;
  
-    public mangaAdapter(Context context, ArrayList<Manga> results) {
+    public MangaAdapter(Context context, ArrayList<Manga> results) {
         mangaList = results;
         mInflater = LayoutInflater.from(context);
     }
