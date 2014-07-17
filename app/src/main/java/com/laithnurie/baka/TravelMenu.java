@@ -18,6 +18,13 @@ public class TravelMenu extends Activity {
         DashboardClickListener dBClickListener = new DashboardClickListener();
         findViewById(R.id.tube).setOnClickListener(dBClickListener);
         findViewById(R.id.national).setOnClickListener(dBClickListener);
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
     
     private class DashboardClickListener implements OnClickListener {

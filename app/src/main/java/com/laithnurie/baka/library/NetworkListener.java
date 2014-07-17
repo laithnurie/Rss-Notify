@@ -1,19 +1,16 @@
 package com.laithnurie.baka.library;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import com.laithnurie.baka.MangaViewer;
-import com.laithnurie.baka.R;
+import org.jsoup.Jsoup;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -33,19 +30,35 @@ public class NetworkListener extends BroadcastReceiver {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(broadCastcontext);
         boolean checkForManga = sharedPreferences.getBoolean("perform_updates",true);
 
-        if (intent.getExtras() != null && checkForManga) {
+        if (intent.getExtras() != null) {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo ni = cm.getActiveNetworkInfo();
             if (ni != null && ni.isAvailable() && ni.isConnected() ) {
                 Log.i("app", "Network " + ni.getTypeName() + " connected");
-                checkMangaLastChapter("naruto");
-                checkMangaLastChapter("bleach");
-                checkMangaLastChapter("one-piece");
 
+                Boolean newVersionExist = false;
+                try {
+                    newVersionExist = new newVersion().execute().get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+                if(newVersionExist){
+                    Log.i("app", "Network " + ni.getTypeName() + " connected");
+                    AlertHelper.createUpdateNotifcation(context);
+                }
+                if (checkForManga) {fetchLastChapters();}
             } else if (intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, Boolean.FALSE)) {
                 Log.d("NetworkListener", "There's no network connectivity");
             }
         }
+    }
+
+    private void fetchLastChapters() {
+        checkMangaLastChapter("naruto");
+        checkMangaLastChapter("bleach");
+        checkMangaLastChapter("one-piece");
     }
 
     private void checkMangaLastChapter(String mangaName) {
@@ -63,7 +76,7 @@ public class NetworkListener extends BroadcastReceiver {
         if (result != null) {
             if (result.size() > LastChapter){
                 Manga lastChapter = result.get(0);
-                showNotification(context, lastChapter);
+                AlertHelper.createMangaNotifcation(context, lastChapter);
                 mangaEditor.putInt(mangaName + "lc", result.size());
                 mangaEditor.apply();
             } else {
@@ -72,42 +85,28 @@ public class NetworkListener extends BroadcastReceiver {
         }
     }
 
-    private void showNotification(Context context, Manga lastChapter) {
+    private class newVersion extends AsyncTask<Void, Integer, Boolean> {
 
-        int requestID = (int) System.currentTimeMillis();
+        @Override
+        protected Boolean doInBackground(final Void... params) {
 
-        Intent viewManga = new Intent(context, MangaViewer.class);
-        viewManga.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        viewManga.putExtra("mangaPage", "http://www.laithlab.me/manga/" + lastChapter.getManga() + "/" + lastChapter.getChapterNo() + "/0");
+            try {
+                String curVersion = context.getPackageManager().getPackageInfo(context.getPackageName(),0).versionName;
+                String newVersion = Jsoup.connect("https://play.google.com/store/apps/details?id=" + context.getPackageName() + "&hl=en")
+                        .timeout(30000)
+                        .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+                        .referrer("http://www.google.com")
+                        .get()
+                        .select("div[itemprop=softwareVersion]")
+                        .first()
+                        .ownText();
 
-        PendingIntent contentIntent = PendingIntent.getActivity(context, requestID, viewManga, PendingIntent.FLAG_CANCEL_CURRENT);
-
-        String iconString = lastChapter.getManga();
-
-        if(iconString.equals("one-piece")){
-            iconString = "onepiece";
+                int majorNewVersion = Integer.parseInt(newVersion.split("\\.")[0]);
+                int majorCurrentVersion = Integer.parseInt(curVersion.split("\\.")[0]);
+                return (majorCurrentVersion) < (majorNewVersion);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
         }
-
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(context)
-                        .setSmallIcon(getResourceId(context, iconString, "drawable", context.getPackageName()))
-                        .setContentTitle("New Chapter of " + lastChapter.getManga() + "!")
-                        .setContentText(lastChapter.getDesc());
-        mBuilder.setContentIntent(contentIntent);
-        mBuilder.setAutoCancel(true);
-        NotificationManager mNotificationManager =
-                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(lastChapter.getManga(),1, mBuilder.build());
-
-}
-    private static int getResourceId(Context context, String pVariableName, String pResourcename, String pPackageName)
-    {
-        try {
-            return context.getResources().getIdentifier(pVariableName, pResourcename, pPackageName);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return R.drawable.manga_btn;
-        }
-    }
-
-}
+    }}

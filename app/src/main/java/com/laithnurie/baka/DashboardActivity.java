@@ -24,7 +24,14 @@ public class DashboardActivity extends Activity {
 		DashboardClickListener dBClickListener = new DashboardClickListener();
 		findViewById(R.id.mangaSection).setOnClickListener(dBClickListener);
 		findViewById(R.id.travelSection).setOnClickListener(dBClickListener);
-	}
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

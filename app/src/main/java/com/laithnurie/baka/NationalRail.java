@@ -48,6 +48,13 @@ public class NationalRail extends Activity {
 	        	startActivity(nationalTrains);
 			}
 		});
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
 
     @Override

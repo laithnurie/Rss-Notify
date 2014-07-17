@@ -59,8 +59,14 @@ public class TubeActivity extends Activity {
 
         new loadTubeJson().execute();
 
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
 
     public class loadTubeJson extends AsyncTask<String, Integer, NodeList> {
 

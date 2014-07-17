@@ -23,7 +23,14 @@ public class ShowSettingsActivity extends Activity {
 
         TextView settingsTextView = (TextView) findViewById(R.id.settings_text_view);
 		settingsTextView.setText("\n" + sharedPrefs.getBoolean("perform_updates", false) + "\n" + sharedPrefs.getString("updates_interval", "-1") + "\n" + sharedPrefs.getString("location_receiver_phone_no", "NULL"));
-	}
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
 
 
 	@Override
