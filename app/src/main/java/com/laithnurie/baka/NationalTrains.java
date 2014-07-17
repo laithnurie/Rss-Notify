@@ -30,10 +30,10 @@ import java.io.InputStreamReader;
 
 public class NationalTrains extends Activity {
 
-    String fromStation;
-    String toStation;
-    String trainUrlDate;
-    int dip;
+    private String fromStation;
+    private String toStation;
+    private String trainUrlDate;
+    private int dip;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -139,7 +139,7 @@ public class NationalTrains extends Activity {
         }
     }
 
-    public TextView rowTextView(String rowText) {
+    TextView rowTextView(String rowText) {
 
         TextView cell = new TextView(getApplicationContext());
         cell.setPadding(10 * dip, 10 * dip, 10 * dip, 10 * dip);
@@ -150,9 +150,9 @@ public class NationalTrains extends Activity {
         return cell;
     }
 
-    public TableRow tableRow(TextView timeTV, TextView statusTV, TextView destTV) {
+    TableRow tableRow(TextView timeTV, TextView statusTV, TextView destTV) {
 
-        TableRow tr = (TableRow) new TableRow(getApplicationContext());
+        TableRow tr = new TableRow(getApplicationContext());
         tr.setGravity(Gravity.CENTER);
         tr.setBackgroundColor(getResources().getColor(R.color.status));
         tr.addView(timeTV);

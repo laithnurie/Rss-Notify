@@ -11,9 +11,7 @@ import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.laithnurie.baka.DashboardActivity;
 import com.laithnurie.baka.MangaViewer;
 import com.laithnurie.baka.R;
 
@@ -26,14 +24,14 @@ import java.util.concurrent.ExecutionException;
 public class NetworkListener extends BroadcastReceiver {
 
     private Context context;
+    private SharedPreferences sharedPreferences;
     @Override
     public void onReceive(Context broadCastcontext, Intent intent) {
-        Log.d("app", "Network connectivity change");
+        Log.d("NetworkListener", "Network connectivity change");
         context = broadCastcontext;
 
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(broadCastcontext);
-        boolean checkForManga = sharedPreferences.getBoolean("perform_updates",false);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(broadCastcontext);
+        boolean checkForManga = sharedPreferences.getBoolean("perform_updates",true);
 
         if (intent.getExtras() != null && checkForManga) {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -45,7 +43,7 @@ public class NetworkListener extends BroadcastReceiver {
                 checkMangaLastChapter("one-piece");
 
             } else if (intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, Boolean.FALSE)) {
-                Log.d("app", "There's no network connectivity");
+                Log.d("NetworkListener", "There's no network connectivity");
             }
         }
     }
@@ -60,15 +58,17 @@ public class NetworkListener extends BroadcastReceiver {
             e.printStackTrace();
         }
 
-        SharedPreferences mangaData = PreferenceManager.getDefaultSharedPreferences(context);
-
-        int LastChapter =  mangaData.getInt(mangaName + "lc",0);
-
-        if (result.size() > LastChapter){
-            Manga lastChapter = result.get(0);
-            showNotification(context, lastChapter);
-        } else {
-            Toast.makeText(context, "there no new" + mangaName + "chapter dude !!" , Toast.LENGTH_LONG).show();
+        SharedPreferences.Editor mangaEditor = sharedPreferences.edit();
+        int LastChapter =  sharedPreferences.getInt(mangaName + "lc",0);
+        if (result != null) {
+            if (result.size() > LastChapter){
+                Manga lastChapter = result.get(0);
+                showNotification(context, lastChapter);
+                mangaEditor.putInt(mangaName + "lc", result.size());
+                mangaEditor.apply();
+            } else {
+                Log.v("NetworkListener","No new Manga");
+            }
         }
     }
 
@@ -84,7 +84,7 @@ public class NetworkListener extends BroadcastReceiver {
 
         String iconString = lastChapter.getManga();
 
-        if(iconString == "one-piece"){
+        if(iconString.equals("one-piece")){
             iconString = "onepiece";
         }
 
@@ -100,7 +100,7 @@ public class NetworkListener extends BroadcastReceiver {
         mNotificationManager.notify(lastChapter.getManga(),1, mBuilder.build());
 
 }
-    public static int getResourceId(Context context, String pVariableName, String pResourcename, String pPackageName)
+    private static int getResourceId(Context context, String pVariableName, String pResourcename, String pPackageName)
     {
         try {
             return context.getResources().getIdentifier(pVariableName, pResourcename, pPackageName);

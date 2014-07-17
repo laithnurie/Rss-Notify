@@ -23,9 +23,8 @@ import java.util.concurrent.ExecutionException;
 
 public class MangaList extends Activity {
 
-    ListView lv;
-    Context appContext;
-    String chapterParam;
+    private ListView lv;
+    private Context appContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,12 +45,14 @@ public class MangaList extends Activity {
             e.printStackTrace();
         }
 
-        if(result.size()>0){
+        if (result != null) {
+            if(result.size()>0){
 
-            SharedPreferences mangaData = PreferenceManager.getDefaultSharedPreferences(appContext);
-            SharedPreferences.Editor mangaEditor = mangaData.edit();
-            mangaEditor.putInt(feedURL + "lc", result.size());
-            mangaEditor.apply();
+                SharedPreferences mangaData = PreferenceManager.getDefaultSharedPreferences(appContext);
+                SharedPreferences.Editor mangaEditor = mangaData.edit();
+                mangaEditor.putInt(feedURL + "lc", result.size());
+                mangaEditor.apply();
+            }
         }
 
         lv = (ListView) findViewById(R.id.srListView);

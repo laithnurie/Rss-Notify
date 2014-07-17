@@ -21,14 +21,8 @@ public class ShowSettingsActivity extends Activity {
 
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-		StringBuilder builder = new StringBuilder();
-
-		builder.append("\n" + sharedPrefs.getBoolean("perform_updates", false));
-		builder.append("\n" + sharedPrefs.getString("updates_interval", "-1"));
-		builder.append("\n" + sharedPrefs.getString("location_receiver_phone_no", "NULL"));
-
-		TextView settingsTextView = (TextView) findViewById(R.id.settings_text_view);
-		settingsTextView.setText(builder.toString());
+        TextView settingsTextView = (TextView) findViewById(R.id.settings_text_view);
+		settingsTextView.setText("\n" + sharedPrefs.getBoolean("perform_updates", false) + "\n" + sharedPrefs.getString("updates_interval", "-1") + "\n" + sharedPrefs.getString("location_receiver_phone_no", "NULL"));
 	}
 
 

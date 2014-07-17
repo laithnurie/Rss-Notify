@@ -9,7 +9,7 @@ import android.view.ViewGroup;
  * Custom layout that arranges children in a grid-like manner, optimizing for even horizontal and
  * vertical whitespace.
  */
-public class DashboardLayout extends ViewGroup {
+class DashboardLayout extends ViewGroup {
 
     private static final int UNEVEN_GRID_PENALTY_MULTIPLIER = 10;
 

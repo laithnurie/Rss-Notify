@@ -10,14 +10,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 public class DashboardActivity extends Activity {
-	Activity currentActivity;
 
-	@Override
+    @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dashboard);
 
-		currentActivity = this;
+        Activity currentActivity = this;
 
 		RssApp.setCurrentActivity(currentActivity);
 
