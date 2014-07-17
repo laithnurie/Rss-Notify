@@ -20,9 +20,16 @@ public class MangaMenu extends Activity {
         findViewById(R.id.narutoBtn).setOnClickListener(dBClickListener);
         findViewById(R.id.bleachBtn).setOnClickListener(dBClickListener);
         findViewById(R.id.onepieceBtn).setOnClickListener(dBClickListener);
-	}
-	
-	private class DashboardClickListener implements OnClickListener {
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
+
+    private class DashboardClickListener implements OnClickListener {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
@@ -42,8 +49,7 @@ public class MangaMenu extends Activity {
 	
 	}
 	
-	void mangaIntentSwitcher(String manga)
-	{
+	void mangaIntentSwitcher(String manga){
 		Intent i = new Intent(getApplicationContext(), MangaList.class);
     	i.putExtra("feedUrl", manga);
     	startActivity(i);

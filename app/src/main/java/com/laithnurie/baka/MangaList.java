@@ -70,7 +70,15 @@ public class MangaList extends Activity {
                 startActivity(i);
             }
         });
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

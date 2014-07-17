@@ -47,6 +47,13 @@ public class NationalTrains extends Activity {
 
         trainUrlDate = "http://ojp.nationalrail.co.uk/service/ldb/liveTrainsJson?departing=true&liveTrainsFrom=" + fromStation + "&liveTrainsTo=" + toStation + "&serviceId=";
         new loadTrainJson().execute();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
 
     public class loadTrainJson extends AsyncTask<String, Integer, String> {

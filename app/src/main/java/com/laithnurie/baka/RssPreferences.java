@@ -23,8 +23,14 @@ public class RssPreferences extends PreferenceActivity {
         PrefsFragment mPrefsFragment = new PrefsFragment();
         mFragmentTransaction.replace(android.R.id.content, mPrefsFragment);
         mFragmentTransaction.commit();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
 
-	}
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
 
     public static class PrefsFragment extends PreferenceFragment {
 
