@@ -26,11 +26,11 @@ import java.util.ArrayList;
 
 public class MangaFetcher extends AsyncTask<String, Integer, ArrayList<Manga>> {
 
-    ProgressDialog pd;
-    Manga chapter;
-    ArrayList<Manga> mangaList;
-    boolean triggeredByUser;
-    Context context;
+    private ProgressDialog pd;
+    private Manga chapter;
+    private ArrayList<Manga> mangaList;
+    final boolean triggeredByUser;
+    private final Context context;
 
     public MangaFetcher(boolean triggeredByUser, Context context) {
 

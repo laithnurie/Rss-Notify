@@ -8,8 +8,8 @@
 
         <CheckBoxPreference
                 android:key="perform_updates"
-                android:summary="Enable or disable data updates"
-                android:title="Enable updates"
+                android:summary="Check for new manga"
+                android:title="Manga Check"
                 android:defaultValue="true"
                 />
 

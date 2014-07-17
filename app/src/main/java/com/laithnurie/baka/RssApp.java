@@ -21,15 +21,15 @@ public class RssApp extends Application {
 		appCurrentActivity = currentActivity;
 	}
 
-	public static JSONArray getWeatherJson() {
-		return appWeatherJson;
-	}
-
-	public static void setWeatherJson(JSONArray weatherJson) {
-		appWeatherJson = weatherJson;
-	}
-
-	public static void clearWeatherJson() {
-		appWeatherJson = new JSONArray();
-	}
+//	public static JSONArray getWeatherJson() {
+//		return appWeatherJson;
+//	}
+//
+//	public static void setWeatherJson(JSONArray weatherJson) {
+//		appWeatherJson = weatherJson;
+//	}
+//
+//	public static void clearWeatherJson() {
+//		appWeatherJson = new JSONArray();
+//	}
 }

@@ -13,10 +13,10 @@ import android.widget.Spinner;
 
 public class NationalRail extends Activity {
 	
-	Button button;
+	private Button button;
 	
-	Spinner from;
-    Spinner to;
+	private Spinner from;
+    private Spinner to;
 
 
     @Override

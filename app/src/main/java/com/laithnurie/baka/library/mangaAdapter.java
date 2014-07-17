@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class MangaAdapter extends BaseAdapter {
     private static ArrayList<Manga> mangaList;
-    private LayoutInflater mInflater;
+    private final LayoutInflater mInflater;
  
     public MangaAdapter(Context context, ArrayList<Manga> results) {
         mangaList = results;

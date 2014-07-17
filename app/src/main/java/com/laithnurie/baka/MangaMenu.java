@@ -42,7 +42,7 @@ public class MangaMenu extends Activity {
 	
 	}
 	
-	public void mangaIntentSwitcher(String manga)
+	void mangaIntentSwitcher(String manga)
 	{
 		Intent i = new Intent(getApplicationContext(), MangaList.class);
     	i.putExtra("feedUrl", manga);

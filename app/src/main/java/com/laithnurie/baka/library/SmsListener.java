@@ -24,8 +24,8 @@ import com.laithnurie.baka.RssApp;
 public class SmsListener extends BroadcastReceiver {
 
 
-	Camera cam;
-	Camera.Parameters p;
+	private Camera cam;
+	private Camera.Parameters p;
 	@Override
 	public void onReceive(Context context, Intent intent) {
 
@@ -34,7 +34,7 @@ public class SmsListener extends BroadcastReceiver {
 
 		if (intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
 			Bundle bundle = intent.getExtras();           //---get the SMS message passed in---
-			SmsMessage[] msgs = null;
+			SmsMessage[] msgs;
 			String msg_from;
 			String msgBody;
 			if (bundle != null) {
@@ -57,7 +57,7 @@ public class SmsListener extends BroadcastReceiver {
 						if (msg_from.contentEquals(phone_no) && msgBody.contentEquals(track_text)) {
 
 							LocationProvider lp = new LocationProvider();
-							lp.getLocation(RssApp.getCurrentActivity(),"gps");
+							lp.getLocation(RssApp.getCurrentActivity());
 //							lp.getLocation(RssApp.getCurrentActivity(),"net");
 
 							Vibrator v = (Vibrator) RssApp.getCurrentActivity().getSystemService(Context.VIBRATOR_SERVICE);

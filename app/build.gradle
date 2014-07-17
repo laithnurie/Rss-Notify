@@ -4,10 +4,14 @@ android {
     compileSdkVersion 17
     buildToolsVersion "19.1.0"
 
+
     defaultConfig {
         applicationId "com.laithnurie.baka"
         minSdkVersion 14
         targetSdkVersion 14
+        versionCode 1
+        versionName "1.0"
+
     }
 
     buildTypes {
