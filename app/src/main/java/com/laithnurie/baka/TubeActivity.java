@@ -16,11 +16,21 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 public class TubeActivity extends Activity {
 
@@ -66,7 +76,7 @@ public class TubeActivity extends Activity {
     }
 
 
-    public class loadTubeJson extends AsyncTask<String, Integer, String> {
+    public class loadTubeJson extends AsyncTask<String, Integer, NodeList> {
 
         ProgressDialog pd;
 
@@ -81,35 +91,26 @@ public class TubeActivity extends Activity {
         }
 
         @Override
-        protected String doInBackground(final String... params) {
-            StringBuilder builder = new StringBuilder();
-            HttpClient client = new DefaultHttpClient();
-            HttpGet httpGet = new HttpGet("http://api.tubeupdates.com/?method=get.status");
+        protected NodeList doInBackground(final String... params) {
 
+            Document doc = null;
             try {
-                HttpResponse response = client.execute(httpGet);
-                StatusLine statusLine = response.getStatusLine();
-                int statusCode = statusLine.getStatusCode();
-                if (statusCode == 200) {
-                    HttpEntity entity = response.getEntity();
-                    InputStream content = entity.getContent();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(content));
-                    String line;
+                URL url = new URL("http://cloud.tfl.gov.uk/TrackerNet/LineStatus");
+                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+                DocumentBuilder db = dbf.newDocumentBuilder();
+                doc = db.parse(new InputSource(url.openStream()));
+                doc.getDocumentElement().normalize();
 
-                    while ((line = reader.readLine()) != null) {
-                        builder.append(line);
-                    }
-                } else {
-                    Log.e(TubeActivity.class.toString(), "Fetching Data request failed");
-                }
-            } catch (ClientProtocolException e) {
-
-                Log.e(TubeActivity.class.toString(), e.toString());
-
-            } catch (IOException e) {
-                Log.e(TubeActivity.class.toString(), e.toString());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return builder.toString();
+
+            NodeList nodeList = doc.getElementsByTagName("LineStatus");
+
+
+            return nodeList;
         }
 
 
@@ -119,18 +120,14 @@ public class TubeActivity extends Activity {
         }
 
         @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(NodeList tubeData) {
             try {
 
-                JSONObject tubeJson = new JSONObject(result);
-                JSONObject response = tubeJson.getJSONObject("response");
-                JSONArray linesList = response.getJSONArray("lines");
+                for (int i = 0; i < tubeData.getLength(); i++) {
 
-                for (int i = 0; i < linesList.length(); i++) {
-
-                    JSONObject line = linesList.getJSONObject(i);
-                    String lineName = line.getString("name");
-                    String lineStatus = line.getString("status");
+                    Node line = tubeData.item(i);
+                    String lineName = line.getChildNodes().item(3).getAttributes().getNamedItem("Name").getNodeValue();
+                    String lineStatus = line.getChildNodes().item(5).getAttributes().getNamedItem("Description").getNodeValue();
 
                     Log.i("tube", lineName + " : " + lineStatus);
 
@@ -148,31 +145,31 @@ public class TubeActivity extends Activity {
                             district.setText(lineStatus);
                             break;
                         case 4:
-                            dlr.setText(lineStatus);
-                            break;
-                        case 5:
                             hammersmith.setText(lineStatus);
                             break;
-                        case 6:
+                        case 5:
                             jubilee.setText(lineStatus);
                             break;
-                        case 7:
+                        case 6:
                             metropolitan.setText(lineStatus);
                             break;
-                        case 8:
+                        case 7:
                             northern.setText(lineStatus);
                             break;
-                        case 9:
-                            overground.setText(lineStatus);
-                            break;
-                        case 10:
+                        case 8:
                             piccadily.setText(lineStatus);
                             break;
-                        case 11:
+                        case 9:
                             victoria.setText(lineStatus);
                             break;
-                        case 12:
+                        case 10:
                             waterloocity.setText(lineStatus);
+                            break;
+                        case 11:
+                            overground.setText(lineStatus);
+                            break;
+                        case 12:
+                            dlr.setText(lineStatus);
                             break;
                         default:
                             break;

@@ -30,7 +30,12 @@ public class NetworkListener extends BroadcastReceiver {
     public void onReceive(Context broadCastcontext, Intent intent) {
         Log.d("app", "Network connectivity change");
         context = broadCastcontext;
-        if (intent.getExtras() != null) {
+
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(broadCastcontext);
+        boolean checkForManga = sharedPreferences.getBoolean("perform_updates",false);
+
+        if (intent.getExtras() != null && checkForManga) {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo ni = cm.getActiveNetworkInfo();
             if (ni != null && ni.isAvailable() && ni.isConnected() ) {
@@ -63,8 +68,7 @@ public class NetworkListener extends BroadcastReceiver {
             Manga lastChapter = result.get(0);
             showNotification(context, lastChapter);
         } else {
-            Toast.makeText(context, "there no new chapter dude !!", Toast.LENGTH_LONG).show();
-
+            Toast.makeText(context, "there no new" + mangaName + "chapter dude !!" , Toast.LENGTH_LONG).show();
         }
     }
 
