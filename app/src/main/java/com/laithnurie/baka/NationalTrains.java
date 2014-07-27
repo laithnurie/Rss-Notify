@@ -2,13 +2,11 @@ package com.laithnurie.baka;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -34,11 +32,13 @@ public class NationalTrains extends Activity {
     private String toStation;
     private String trainUrlDate;
     private int dip;
+    private Activity currentActivity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_national_trains);
+        currentActivity = this;
 
         Bundle extras = getIntent().getExtras();
         fromStation = extras.getString("from");
@@ -115,10 +115,6 @@ public class NationalTrains extends Activity {
 
             TableLayout tl = (TableLayout) findViewById(R.id.trainsTable);
 
-            View v = new View(getApplicationContext());
-            v.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 1));
-            v.setBackgroundColor(Color.rgb(50, 50, 50));
-
             try {
 
                 JSONObject trainJson = new JSONObject(result);
@@ -137,7 +133,6 @@ public class NationalTrains extends Activity {
                     statusTV = rowTextView(status);
 
                     tl.addView(tableRow(timeTV, statusTV, destTV));
-                    tl.addView(v);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

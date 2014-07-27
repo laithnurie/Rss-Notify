@@ -8,7 +8,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+
 import com.crashlytics.android.Crashlytics;
+import com.newrelic.agent.android.NewRelic;
 
 public class DashboardActivity extends Activity {
 
@@ -16,6 +18,9 @@ public class DashboardActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Crashlytics.start(this);
+        NewRelic.withApplicationToken(
+                "AA1e628576701cff20c8933f8f8d20f13066a77662"
+        ).start(this.getApplication());
 		setContentView(R.layout.activity_dashboard);
 
         Activity currentActivity = this;
