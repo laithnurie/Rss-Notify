@@ -50,7 +50,8 @@
         </activity>
         <activity
                 android:name=".MangaViewer"
-                android:label="@string/title_activity_manga_viewer">
+                android:label="@string/title_activity_manga_viewer"
+                android:theme="@style/AppTheme">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.laithnurie.baka.MangaList"/>
