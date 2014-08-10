@@ -19,7 +19,6 @@ public class MangaViewer extends Activity {
         webView = (WebView) findViewById(R.id.webView1);
 		webView.getSettings().setJavaScriptEnabled(true);
 		webView.getSettings().setSupportZoom(true);
-		webView.getSettings().setBuiltInZoomControls(true);
 		webView.getSettings().setAllowContentAccess(true);
 		webView.getSettings().setLoadWithOverviewMode(true);
 	    webView.getSettings().setUseWideViewPort(true);
