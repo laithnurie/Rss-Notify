@@ -28,8 +28,8 @@ android {
         applicationId "com.laithnurie.baka"
         minSdkVersion 14
         targetSdkVersion 14
-        versionCode 4
-        versionName "2.1"
+        versionCode 5
+        versionName "2.2"
 
     }
 
