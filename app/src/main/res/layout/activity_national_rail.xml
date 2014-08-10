@@ -13,8 +13,8 @@
             android:layout_height="wrap_content"
             android:text="@string/from"/>
 
-    <Spinner
-            android:id="@+id/from_spinner"
+    <AutoCompleteTextView
+            android:id="@+id/from_station"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -24,8 +24,8 @@
             android:layout_height="wrap_content"
             android:text="@string/to"/>
 
-    <Spinner
-            android:id="@+id/to_spinner"
+    <AutoCompleteTextView
+            android:id="@+id/to_station"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

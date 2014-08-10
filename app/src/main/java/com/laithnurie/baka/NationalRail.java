@@ -8,15 +8,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.Spinner;
 
 public class NationalRail extends Activity {
 	
 	private Button button;
 	
-	private Spinner from;
-    private Spinner to;
+	private AutoCompleteTextView from;
+    private AutoCompleteTextView to;
 
 
     @Override
@@ -25,10 +25,10 @@ public class NationalRail extends Activity {
         setContentView(R.layout.activity_national_rail);
         
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-        		  this, R.array.station_name, android.R.layout.simple_spinner_item );
+        		  this, R.array.station_names, android.R.layout.simple_spinner_item );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        from = (Spinner) findViewById( R.id.from_spinner );
-        to = (Spinner) findViewById( R.id.to_spinner );
+        from = (AutoCompleteTextView) findViewById( R.id.from_station );
+        to = (AutoCompleteTextView) findViewById( R.id.to_station );
         
         from.setAdapter(adapter);
         to.setAdapter(adapter);
@@ -38,9 +38,12 @@ public class NationalRail extends Activity {
  
 			@Override
 			public void onClick(View arg0) {
- 
-				String fromValue = from.getSelectedItem().toString();
-				String toValue = to.getSelectedItem().toString();
+
+                String[] fromStation = from.getText().toString().split("-");
+                String[] toStation = to.getText().toString().split("-");
+
+                String fromValue = fromStation[fromStation.length - 1].replaceAll("\\s+","");
+				String toValue = toStation[toStation.length - 1].replaceAll("\\s+", "");
 							
 				Intent nationalTrains = new Intent(getApplicationContext(), NationalTrains.class);
 				nationalTrains.putExtra("from", fromValue);
